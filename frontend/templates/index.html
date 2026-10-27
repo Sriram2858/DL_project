@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="VoxAssist is a responsive speech bot powered by a neural-network intent classifier." />
+  <title>VoxAssist — Responsive Speech Bot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <div class="app-frame">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="VoxAssist home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" role="img"><path d="M20 6v28M14 11v18M26 11v18M8 16v8M32 16v8" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".28"/></svg>
+        </span>
+        <span class="brand-copy"><strong>voxassist<span>.</span></strong><small>RESPONSIVE SPEECH BOT</small></span>
+      </a>
+      <div class="topbar-right">
+        <span class="course-pill"><span class="pill-dot"></span> DEEP LEARNING LAB</span>
+        <span class="system-status" id="systemStatus"><span class="status-dot"></span><span id="systemStatusText">Checking system</span></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-row">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> CONVERSATIONAL AI, BUILT TO RESPOND</div>
+          <h1>Your voice.<br /><span>Understood.</span></h1>
+          <p class="hero-description">A speech-first assistant that turns words into intent, then intent into a helpful response.</p>
+          <div class="hero-meta">
+            <span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5 16 5v4.2c0 4-2.5 6.6-6 8.3-3.5-1.7-6-4.3-6-8.3V5l6-2.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m7 9.8 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Local intent model</span>
+            <span><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6.5" y="2.5" width="7" height="11" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4 9.5a6 6 0 0 0 12 0M10 15.5V18M7 18h6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Voice + text input</span>
+          </div>
+        </div>
+        <div class="voice-visual" aria-label="Decorative voice wave visualization">
+          <div class="visual-orbit orbit-a"></div><div class="visual-orbit orbit-b"></div>
+          <div class="visual-core"><div class="core-glow"></div><div class="wave-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <span class="float-tag tag-left"><span class="tag-marker"></span> LISTENING / THINKING</span>
+          <span class="float-tag tag-right">VOICE INTERFACE <b>01</b></span>
+          <span class="visual-cross cross-one">✳</span><span class="visual-cross cross-two">✳</span>
+        </div>
+      </section>
+
+      <section class="workspace-grid" aria-label="Speech bot workspace">
+        <section class="chat-card panel">
+          <div class="panel-header">
+            <div class="panel-title-wrap">
+              <div class="panel-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.8A2.8 2.8 0 0 1 6.8 3h10.4A2.8 2.8 0 0 1 20 5.8v7.4a2.8 2.8 0 0 1-2.8 2.8H11l-4.6 4v-4.1A2.8 2.8 0 0 1 4 13.1V5.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 8h8M8 11.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+              <div><h2>Conversation</h2><p>Your personal AI workspace</p></div>
+            </div>
+            <div class="chat-actions">
+              <button class="audio-toggle is-on" id="voiceReplyToggle" type="button" aria-pressed="true" title="Toggle spoken replies"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4h3l4 3V5L6 8H3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 7a4 4 0 0 1 0 6M15 4.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span>Voice replies</span><i class="toggle-track"><b></b></i></button>
+              <button class="icon-button" id="clearChatButton" type="button" title="Clear conversation" aria-label="Clear conversation"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 5.5h13M8 5.5V3.7h4v1.8M6 5.5l.7 10h6.6l.7-10M8.5 8.5v4.5M11.5 8.5v4.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </div>
+          </div>
+
+          <div class="conversation-scroll" id="conversationScroll">
+            <div class="date-divider"><span></span><small>YOUR SESSION STARTS HERE</small><span></span></div>
+            <div class="message-row bot-row">
+              <div class="avatar bot-avatar" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 5v3M6.5 12v4M10.5 9v10M14 7v14M17.5 9v10M21.5 12v4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></div>
+              <div class="message-content"><div class="message-meta"><strong>VoxAssist</strong><span>AI ASSISTANT</span></div><div class="bubble bot-bubble">Hey there! I'm VoxAssist. Ask me about deep learning, speech recognition, or this project — or tap the microphone and just speak. <span class="bubble-time">NOW</span></div></div>
+            </div>
+            <div class="suggestion-intro" id="suggestionIntro"><span class="sparkle">✳</span> Not sure where to start? Try one of these.</div>
+            <div class="quick-prompts" id="quickPrompts">
+              <button class="prompt-chip" type="button" data-prompt="Explain deep learning"><span>✳</span> Explain deep learning <b>↗</b></button>
+              <button class="prompt-chip" type="button" data-prompt="How is the model trained?"><span>⌘</span> How is the model trained? <b>↗</b></button>
+              <button class="prompt-chip" type="button" data-prompt="What is speech recognition?"><span>◖</span> Speech recognition <b>↗</b></button>
+              <button class="prompt-chip" type="button" data-prompt="Explain this project"><span>⌁</span> Explain this project <b>↗</b></button>
+            </div>
+            <div class="message-list" id="messageList" aria-live="polite" aria-relevant="additions text"></div>
+          </div>
+
+          <div class="composer-wrap">
+            <div class="listening-banner" id="listeningBanner" hidden><span class="listening-pulse"></span><span id="listeningText">Listening… speak now</span><button type="button" id="cancelListeningButton">Cancel</button></div>
+            <form class="composer" id="chatForm">
+              <button class="mic-button" id="micButton" type="button" aria-label="Start voice input" title="Start voice input"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+              <label class="visually-hidden" for="messageInput">Type your message</label>
+              <input id="messageInput" name="message" type="text" maxlength="500" autocomplete="off" placeholder="Type a message, or tap the mic to speak…" />
+              <span class="enter-hint">ENTER ↵</span>
+              <button class="send-button" id="sendButton" type="submit" aria-label="Send message" title="Send message"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 20 4l-5.5 16-2.7-6.8L4 11.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m11.8 13.2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+            </form>
+            <div class="composer-footer"><span><span class="tiny-shield">◇</span> Text inference runs locally in this demo</span><span id="speechSupportNote">MIC CHECKING…</span></div>
+          </div>
+        </section>
+
+        <aside class="side-column">
+          <section class="model-card panel">
+            <div class="side-card-head"><span class="section-kicker">UNDER THE HOOD</span><span class="live-pill"><i></i> LIVE</span></div>
+            <h2>A little intelligence<br />behind the voice.</h2>
+            <p class="side-description">A compact neural network maps your message to an intent, then finds a fitting response.</p>
+            <div class="network-graphic" aria-label="Illustration of a neural network with input, hidden and output layers">
+              <svg viewBox="0 0 330 156" role="img" aria-label="Input features connect through hidden neural layers to output intents">
+                <g stroke="#53658f" stroke-width="1" opacity=".62">
+                  <path d="M32 38 113 25M32 38 113 60M32 38 113 95M32 38 113 130M32 78 113 25M32 78 113 60M32 78 113 95M32 78 113 130M32 118 113 25M32 118 113 60M32 118 113 95M32 118 113 130"/>
+                  <path d="M121 25 207 38M121 25 207 78M121 25 207 118M121 60 207 38M121 60 207 78M121 60 207 118M121 95 207 38M121 95 207 78M121 95 207 118M121 130 207 38M121 130 207 78M121 130 207 118"/>
+                  <path d="M215 38 296 60M215 38 296 95M215 78 296 60M215 78 296 95M215 118 296 60M215 118 296 95"/>
+                </g>
+                <g fill="#101a30" stroke="#aebdff" stroke-width="1.5"><circle cx="32" cy="38" r="7"/><circle cx="32" cy="78" r="7"/><circle cx="32" cy="118" r="7"/></g>
+                <g fill="#8d8bff" stroke="#c2c0ff" stroke-width="1.5"><circle cx="117" cy="25" r="8"/><circle cx="117" cy="60" r="8"/><circle cx="117" cy="95" r="8"/><circle cx="117" cy="130" r="8"/></g>
+                <g fill="#54d8c8" stroke="#a2f0e5" stroke-width="1.5"><circle cx="211" cy="38" r="8"/><circle cx="211" cy="78" r="8"/><circle cx="211" cy="118" r="8"/></g>
+                <g fill="#101a30" stroke="#e4abff" stroke-width="1.6"><circle cx="296" cy="60" r="8"/><circle cx="296" cy="95" r="8"/></g>
+                <g fill="#8793b4" font-size="9" font-family="DM Mono, monospace"><text x="13" y="148">TEXT</text><text x="94" y="148">HIDDEN</text><text x="194" y="148">DENSE</text><text x="270" y="148">INTENT</text></g>
+              </svg>
+              <div class="network-caption"><span><i class="legend-dot dot-input"></i> Input features</span><span><i class="legend-dot dot-hidden"></i> Hidden layers</span><span><i class="legend-dot dot-output"></i> Intent</span></div>
+            </div>
+            <div class="model-status-row"><div class="status-mini-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.7 16 5v4.2c0 3.7-2.4 6.3-6 8.1-3.6-1.8-6-4.4-6-8.1V5l6-2.3Z" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="m7.2 9.7 1.8 1.8 3.8-4" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><strong id="modelStatusText">Checking model…</strong><small id="modelStatusDetail">Connecting to local inference server</small></div><span class="status-check" id="modelStatusCheck">···</span></div>
+          </section>
+
+          <section class="pipeline-card panel">
+            <div class="side-card-head"><span class="section-kicker">THE RESPONSE LOOP</span><span class="step-count">4 STEPS</span></div>
+            <div class="pipeline-list">
+              <div class="pipeline-step"><div class="pipeline-icon icon-mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6"/></svg></div><div><strong>Listen</strong><p>Speech becomes text</p></div><span>01</span></div>
+              <div class="pipeline-connector"></div>
+              <div class="pipeline-step"><div class="pipeline-icon icon-process"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM9 9h6v6H9zM2 9h3M2 15h3M19 9h3M19 15h3M9 2v3M15 2v3M9 19v3M15 19v3"/></svg></div><div><strong>Interpret</strong><p>Neural network predicts intent</p></div><span>02</span></div>
+              <div class="pipeline-connector"></div>
+              <div class="pipeline-step"><div class="pipeline-icon icon-reply"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5v-8Z"/><path d="M8 8h8M8 11.5h5"/></svg></div><div><strong>Respond</strong><p>Choose a relevant answer</p></div><span>03</span></div>
+              <div class="pipeline-connector"></div>
+              <div class="pipeline-step"><div class="pipeline-icon icon-audio"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg></div><div><strong>Speak</strong><p>Optional voice reply</p></div><span>04</span></div>
+            </div>
+          </section>
+          <div class="small-note"><span>✳</span><p><strong>A course-project prototype</strong><br />Built to demonstrate deep learning, speech interfaces, and human-friendly fallbacks.</p></div>
+        </aside>
+      </section>
+
+      <footer class="page-footer"><span>VOXASSIST <b>•</b> DEEP LEARNING PROJECT</span><span>DESIGNED FOR CONVERSATION <span class="footer-wave">〰</span></span></footer>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

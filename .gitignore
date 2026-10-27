@@ -1,0 +1,9 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+artifacts/model.pt
+artifacts/metadata.json
+artifacts/metrics.json
+!artifacts/.gitkeep

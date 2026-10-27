@@ -1,0 +1,563 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello",
+        "hi",
+        "hey there",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "hello there",
+        "hi voxassist",
+        "hey assistant",
+        "how are you",
+        "hi there",
+        "hello assistant",
+        "hey voxassist",
+        "good day",
+        "how is it going",
+        "nice to meet you"
+      ],
+      "responses": [
+        "Hello! I'm VoxAssist. What would you like to explore today?",
+        "Hi there! Ask me a question or tap the microphone to speak.",
+        "Hey! I'm ready when you are. How can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you later",
+        "talk to you later",
+        "that's all for now",
+        "I am leaving",
+        "catch you later",
+        "exit the chat",
+        "see you",
+        "have a good day",
+        "I will talk to you soon",
+        "thanks bye",
+        "I need to go now",
+        "end our conversation",
+        "that's enough for today",
+        "good night and goodbye"
+      ],
+      "responses": [
+        "Goodbye! Thanks for trying VoxAssist.",
+        "See you next time. Keep learning!",
+        "Take care, and have a great day!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thanks",
+        "thank you",
+        "thanks a lot",
+        "that was helpful",
+        "I appreciate it",
+        "many thanks",
+        "thank you so much",
+        "great help",
+        "you helped me",
+        "much appreciated",
+        "that answered my question",
+        "you are really helpful",
+        "thanks for explaining",
+        "perfect thank you",
+        "I am grateful for the help",
+        "awesome thanks"
+      ],
+      "responses": [
+        "You're welcome!",
+        "Happy to help. Ask me anything else whenever you're ready.",
+        "Anytime! That's what I'm here for."
+      ]
+    },
+    {
+      "tag": "bot_identity",
+      "patterns": [
+        "what is your name",
+        "who are you",
+        "tell me about yourself",
+        "are you a bot",
+        "what should I call you",
+        "introduce yourself",
+        "who am I talking to",
+        "what is voxassist",
+        "are you an AI assistant",
+        "your name please",
+        "what is this assistant called",
+        "are you a virtual assistant",
+        "tell me who you are",
+        "what does the name voxassist mean",
+        "introduce the bot",
+        "who created this assistant"
+      ],
+      "responses": [
+        "I'm VoxAssist, a responsive speech bot built as a Deep Learning course project.",
+        "You can call me VoxAssist. I combine a neural-network intent classifier with speech input and spoken replies."
+      ]
+    },
+    {
+      "tag": "capabilities",
+      "patterns": [
+        "what can you do",
+        "how can you help me",
+        "show your features",
+        "what are your capabilities",
+        "what do you support",
+        "tell me your functions",
+        "how do I use you",
+        "what can I ask you",
+        "list your features",
+        "help me get started",
+        "what topics can you answer",
+        "what can I do in this chat",
+        "how do I interact with the assistant",
+        "can you answer study questions",
+        "what features does the app have",
+        "give me an overview of your abilities"
+      ],
+      "responses": [
+        "I can answer questions about this project and common study topics. You can type a message or use the microphone, and I can read my reply aloud.",
+        "Try asking about deep learning, speech recognition, text to speech, neural networks, model training, study tips, or this project. Use the quick prompts below for examples."
+      ]
+    },
+    {
+      "tag": "project_overview",
+      "patterns": [
+        "explain this project",
+        "what is the project about",
+        "give me the project overview",
+        "describe voxassist",
+        "what does this speech bot do",
+        "explain the application",
+        "tell me about the system",
+        "what problem does it solve",
+        "summarize the project",
+        "project introduction",
+        "how does this speech bot work",
+        "walk me through the app",
+        "what is the purpose of voxassist",
+        "explain the whole system in simple words",
+        "describe the pipeline of this app",
+        "what happens after I speak to the bot"
+      ],
+      "responses": [
+        "VoxAssist is a responsive speech bot. The browser converts speech to text, a Python backend classifies the message with a feed-forward neural network, and the browser can speak the answer aloud using text to speech.",
+        "The project demonstrates a complete speech interaction loop: microphone input, text transcription, neural-network intent classification, response selection, and optional spoken output. A text box remains available as a fallback."
+      ]
+    },
+    {
+      "tag": "deep_learning",
+      "patterns": [
+        "what is deep learning",
+        "define deep learning",
+        "explain deep learning simply",
+        "how does deep learning work",
+        "why use deep learning",
+        "deep learning meaning",
+        "what are deep neural networks",
+        "difference between machine learning and deep learning",
+        "tell me about deep learning",
+        "explain DL",
+        "explain deep learning with an example",
+        "why are multiple layers useful",
+        "how are deep learning models different",
+        "what does a deep learning system learn",
+        "give me a simple definition of DL",
+        "where is deep learning used in this project"
+      ],
+      "responses": [
+        "Deep learning is a machine-learning approach that uses neural networks with multiple layers to learn useful representations from data. In VoxAssist, a multilayer neural network learns to map text features to intent categories.",
+        "Think of deep learning as learning patterns through stacked computational layers. The model here receives a multi-hot vector of words and phrases, then predicts which intent best matches the message."
+      ]
+    },
+    {
+      "tag": "neural_network",
+      "patterns": [
+        "what is a neural network",
+        "explain neural networks",
+        "how does a neural network work",
+        "what are neurons and weights",
+        "what is an activation function",
+        "why are hidden layers used",
+        "explain forward propagation",
+        "what is a feed forward network",
+        "what is backpropagation",
+        "neural network basics",
+        "describe the architecture of the network",
+        "what happens inside a hidden layer",
+        "how do weights affect a prediction",
+        "explain neural network architecture",
+        "how does a neuron calculate its output",
+        "what is the output layer for"
+      ],
+      "responses": [
+        "A neural network consists of connected computational units with learnable weights. During training, it makes predictions, measures the error with a loss function, and updates weights through backpropagation and an optimizer.",
+        "VoxAssist uses a feed-forward network with two hidden layers and ReLU activations. Its final layer produces scores for the supported intent classes."
+      ]
+    },
+    {
+      "tag": "intent_classification",
+      "patterns": [
+        "what is intent classification",
+        "how do you understand my question",
+        "how does the bot identify intent",
+        "what is an intent in NLP",
+        "explain intent detection",
+        "how is text classified",
+        "how does the model choose an answer",
+        "what are the classes",
+        "why classify intents",
+        "explain the prediction process",
+        "how does the bot understand what I say",
+        "how do you figure out what I mean",
+        "how does the model identify my question type",
+        "how is my message mapped to a category",
+        "explain the intent detection step",
+        "how does VoxAssist recognize a request"
+      ],
+      "responses": [
+        "Intent classification maps a message to a category such as greeting, deep learning, or study tips. VoxAssist converts the text into features, obtains class probabilities from its neural network, and selects a response for the predicted intent.",
+        "The model predicts one of the intent labels defined in intents.json. If its confidence is below a threshold, the bot uses a fallback response instead of pretending it understood."
+      ]
+    },
+    {
+      "tag": "speech_recognition",
+      "patterns": [
+        "what is speech recognition",
+        "how does voice input work",
+        "how do you hear me",
+        "convert speech to text",
+        "explain speech to text",
+        "what is automatic speech recognition",
+        "how is my voice transcribed",
+        "how does the microphone work",
+        "voice recognition in this project",
+        "what is ASR",
+        "how can I talk instead of type",
+        "what happens when I press the mic",
+        "how does the app transcribe voice",
+        "why do spoken words become text",
+        "how is audio input processed",
+        "describe the speech recognition component"
+      ],
+      "responses": [
+        "Speech recognition converts spoken audio into text. In this project, the browser's Web Speech API handles transcription, and the resulting text is sent to the Flask backend for intent classification.",
+        "The microphone button starts browser speech recognition. When a final transcript is available, VoxAssist sends the words to its local Python server. Recognition support depends on the browser and its speech service."
+      ]
+    },
+    {
+      "tag": "text_to_speech",
+      "patterns": [
+        "what is text to speech",
+        "how do you speak answers",
+        "explain speech synthesis",
+        "convert text to audio",
+        "what is TTS",
+        "how can I hear the response",
+        "why is the bot speaking",
+        "how do I turn on voice replies",
+        "tell me about speech output",
+        "how does audio response work",
+        "can the bot read the answer aloud",
+        "how do I stop the spoken response",
+        "how is an answer spoken by the browser",
+        "what happens after the bot creates text",
+        "which feature reads answers out loud",
+        "how do I enable audio answers"
+      ],
+      "responses": [
+        "Text to speech converts written text into spoken audio. VoxAssist uses the browser's SpeechSynthesis API to read bot replies aloud, so a separate speech-generation model is not required.",
+        "Use the Voice Replies control to enable or disable spoken answers. The browser and operating system provide the available voices."
+      ]
+    },
+    {
+      "tag": "model_training",
+      "patterns": [
+        "how is the model trained",
+        "explain the training process",
+        "what optimizer do you use",
+        "what loss function is used",
+        "how many layers are there",
+        "how do you train voxassist",
+        "what is the learning rate",
+        "what is cross entropy loss",
+        "how are model weights updated",
+        "tell me about training epochs",
+        "how are the weights learned",
+        "what happens when I run train py",
+        "describe the optimizer used by the model",
+        "how does backpropagation train this bot",
+        "what are the training hyperparameters",
+        "how many training rounds are run"
+      ],
+      "responses": [
+        "Run python train.py to train the classifier. It builds a vocabulary from the patterns in intents.json, vectorizes examples, trains a multilayer perceptron with cross-entropy loss and Adam, and saves the model weights and metadata under artifacts/.",
+        "The training script uses supervised learning: each example text is paired with an intent label. The model produces logits, cross-entropy measures classification error, and Adam updates the parameters by backpropagation."
+      ]
+    },
+    {
+      "tag": "dataset",
+      "patterns": [
+        "where is the dataset",
+        "what data do you use",
+        "explain the training dataset",
+        "how can I add more questions",
+        "where are intents stored",
+        "how do I add a new intent",
+        "what is intents json",
+        "how many categories are included",
+        "can I customize responses",
+        "modify the dataset",
+        "how can I teach the bot another topic",
+        "add a question and answer to the chatbot",
+        "how do I edit the example sentences",
+        "where do I define the response messages",
+        "can I change the bot's training examples",
+        "how are labels and phrases organized"
+      ],
+      "responses": [
+        "The dataset is intents.json. Each intent contains a tag, example patterns, and possible responses. Add several varied patterns to teach a category, then rerun python train.py to rebuild the model.",
+        "This is a small, hand-curated educational dataset rather than a large public benchmark. It is editable, making it easy to demonstrate how more examples can improve intent coverage."
+      ]
+    },
+    {
+      "tag": "study_tips",
+      "patterns": [
+        "give me study tips",
+        "how should I study effectively",
+        "help me focus while studying",
+        "how can I learn faster",
+        "suggest a study routine",
+        "how do I avoid distractions",
+        "tips for studying difficult topics",
+        "how to revise my notes",
+        "help me plan my studies",
+        "improve my study habits",
+        "I keep procrastinating when I study",
+        "how can I concentrate better",
+        "what is a good way to learn a new concept",
+        "how do I study without getting distracted",
+        "suggest a productive study schedule",
+        "how should I review what I learned"
+      ],
+      "responses": [
+        "Try 25–40 minute focused sessions, define one small goal per session, and finish by recalling key ideas without looking at your notes. Short spaced reviews are usually more useful than one long cramming session.",
+        "Break a difficult topic into concepts, work through one example, explain it in your own words, and test yourself later. Keep your phone away during focus sessions."
+      ]
+    },
+    {
+      "tag": "exam_prep",
+      "patterns": [
+        "help me prepare for exams",
+        "how do I revise before an exam",
+        "exam preparation tips",
+        "I have an exam soon",
+        "how to practice for a test",
+        "make revision more effective",
+        "how should I study the night before",
+        "help with exam planning",
+        "how do I remember concepts",
+        "best way to revise a syllabus",
+        "my tests are coming up how should I prepare",
+        "make a plan for my semester exams",
+        "what should I do three days before a test",
+        "how do I practice questions efficiently",
+        "help me prioritize exam topics",
+        "how should I revise weak subjects"
+      ],
+      "responses": [
+        "List the syllabus topics, rank them by importance and confidence, then alternate active recall with practice questions. Leave time to review mistakes instead of only rereading material.",
+        "Start with a short diagnostic quiz, focus on weak areas, and solve questions under time limits. Protect sleep before the exam; it helps attention and recall."
+      ]
+    },
+    {
+      "tag": "project_report",
+      "patterns": [
+        "what should my project report contain",
+        "help me write the report",
+        "how do I explain the methodology",
+        "what results should I report",
+        "how should I present this project",
+        "what are the limitations",
+        "give me future work ideas",
+        "what should be in the conclusion",
+        "how can I evaluate the model",
+        "explain the project methodology",
+        "help me prepare a presentation for this project",
+        "what should I include in the results section",
+        "how do I write the methodology chapter",
+        "suggest a structure for the final report",
+        "what can I say about model limitations",
+        "how should I discuss future enhancements"
+      ],
+      "responses": [
+        "A strong report can cover the problem statement, objectives, related work, system architecture, dataset and preprocessing, neural-network design, training procedure, evaluation metrics, interface, limitations, and future work. Report actual measured results from your run rather than inventing them.",
+        "For evaluation, report held-out intent-classification accuracy and per-class precision, recall, or an F1 score where practical. Also discuss speech-recognition availability, the limited dataset, and confidence-threshold behavior."
+      ]
+    },
+    {
+      "tag": "microphone_troubleshooting",
+      "patterns": [
+        "my microphone is not working",
+        "cannot access the microphone",
+        "the mic button does nothing",
+        "voice input is not working",
+        "why can't you hear me",
+        "microphone permission denied",
+        "speech input failed",
+        "fix microphone access",
+        "voice recognition is unavailable",
+        "the browser cannot hear me",
+        "how do I fix my mic",
+        "my mic stopped working",
+        "my microphone is not recognized",
+        "the microphone permission is blocked",
+        "why does voice capture fail",
+        "my laptop mic is not detected"
+      ],
+      "responses": [
+        "Check that you are using a supported browser such as recent Chrome or Edge, open the app at http://127.0.0.1:5000, and allow microphone permission. Also check Windows microphone privacy settings and your selected input device.",
+        "The app can still be tested with typed messages. For speech input, try Chrome or Edge, allow microphone access, confirm Windows recognizes your microphone, and reload the page. Speech recognition availability can depend on your browser and internet connection."
+      ]
+    },
+    {
+      "tag": "browser_support",
+      "patterns": [
+        "which browser should I use",
+        "does this work in chrome",
+        "is firefox supported",
+        "can I use edge",
+        "why is speech recognition unsupported",
+        "browser compatibility",
+        "does it work offline",
+        "can I use this on my phone",
+        "is the frontend responsive",
+        "can I open it on mobile",
+        "which browser is best for this speech bot",
+        "does voice mode work on android",
+        "can this chatbot run on a tablet",
+        "how can I test the mobile layout",
+        "which browsers support the microphone feature",
+        "can I use voice input without internet"
+      ],
+      "responses": [
+        "Recent Chrome or Edge on desktop is recommended for the Web Speech API. The page layout adapts to smaller screens, but speech-recognition support varies by browser and operating system; typed input is the fallback.",
+        "The Flask app and neural-network prediction run locally. Browser speech recognition may use an online service, so the full voice workflow is not guaranteed to work offline. The interface itself is responsive on mobile-sized screens."
+      ]
+    },
+    {
+      "tag": "privacy",
+      "patterns": [
+        "is my data stored",
+        "what happens to my messages",
+        "is this project private",
+        "does the app record audio",
+        "are conversations saved",
+        "where does my voice go",
+        "explain the privacy design",
+        "do you store my microphone audio",
+        "is the model running locally",
+        "what data is sent to the server",
+        "does this chatbot keep a conversation log",
+        "is my audio saved to a file",
+        "does my message leave my computer",
+        "does the Python server store anything",
+        "can someone read my previous messages",
+        "is voice transcription always offline"
+      ],
+      "responses": [
+        "The Flask backend processes the text you submit and does not save chat history or microphone recordings. Browser speech recognition may send audio to a browser-vendor service depending on its implementation, so avoid sensitive information and check your browser's privacy settings.",
+        "Intent classification runs on your local Python server. The browser handles microphone transcription and spoken output; Web Speech recognition may rely on an online service. This demo does not include a database or persistent chat storage."
+      ]
+    },
+    {
+      "tag": "joke",
+      "patterns": [
+        "tell me a joke",
+        "make me laugh",
+        "say something funny",
+        "do you know a joke",
+        "give me a short joke",
+        "I need a laugh",
+        "share a programming joke",
+        "funny joke please",
+        "entertain me",
+        "one joke",
+        "tell me something amusing",
+        "make a joke about AI",
+        "give me a funny tech joke",
+        "do a quick comedy bit",
+        "another programming joke",
+        "say a nerdy joke"
+      ],
+      "responses": [
+        "Why did the neural network go to therapy? It had too many layers of issues.",
+        "Why do programmers prefer dark mode? Because light attracts bugs.",
+        "I asked my model for a joke. It returned a high-confidence result, but the humor still needs human evaluation."
+      ]
+    },
+    {
+      "tag": "motivation",
+      "patterns": [
+        "motivate me",
+        "I feel stuck with my project",
+        "give me some encouragement",
+        "I am struggling to learn",
+        "help me stay motivated",
+        "I cannot understand this topic",
+        "I feel overwhelmed",
+        "encourage me to keep going",
+        "I have lost confidence",
+        "say something inspiring",
+        "I am having a hard time with coding",
+        "please encourage me to continue",
+        "I need motivation to finish my assignment",
+        "how do I keep going when I fail",
+        "I feel like I am not learning enough",
+        "give me a little confidence boost"
+      ],
+      "responses": [
+        "Progress comes from small iterations. Choose one feature you can finish today, test it, and build on that success. You do not need to understand everything at once.",
+        "Being stuck is part of learning technical subjects. Write down what you know, isolate the next unknown, and test one idea at a time. Consistent effort beats trying to solve everything in one sitting."
+      ]
+    },
+    {
+      "tag": "getting_started",
+      "patterns": [
+        "what kinds of questions can I ask",
+        "give me example questions",
+        "show sample prompts",
+        "what topics do you know",
+        "how do I ask a good question",
+        "suggest something to try",
+        "give me a demo",
+        "what should I say",
+        "show me some examples",
+        "what can I test",
+        "what are some example prompts to try",
+        "give me a few things to ask",
+        "show me how to test the assistant",
+        "recommend a first question",
+        "how can I explore the bot",
+        "suggest a question about the model"
+      ],
+      "responses": [
+        "Try: 'Explain deep learning', 'How is the model trained?', 'What is speech recognition?', 'Help me prepare for exams', or 'Explain this project'. You can type or use the microphone.",
+        "Ask a short question about this project, neural networks, speech input/output, model training, study tips, or exam preparation. The quick-prompt chips below are good starting points."
+      ]
+    }
+  ],
+  "fallback_responses": [
+    "I didn't confidently recognize that. Try rephrasing it, or ask about deep learning, speech recognition, model training, study tips, or this project.",
+    "I'm not sure I understood. Could you ask in a different way? You can also choose one of the suggested prompts.",
+    "That question may be outside my current set of intents. Try a shorter version or ask me about how VoxAssist works."
+  ]
+}
