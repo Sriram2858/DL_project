@@ -1,12 +1,13 @@
 # VoxAssist — Responsive Speech Bot
 
-VoxAssist is a small end-to-end Deep Learning course project that demonstrates a responsive chatbot with optional voice input and spoken responses. It combines a Python neural-network classifier with a polished, mobile-responsive web interface.
+VoxAssist is an end-to-end Deep Learning course project with two separate response modes: measurable intent classification and optional free-form generation through a local Ollama model. It accepts typed or spoken input and can read responses aloud in the browser.
 
 ## What it does
 
 - **Accepts speech or text.** The microphone button uses the browser's Web Speech API when available. Typing remains available as a fallback.
 - **Classifies intent with a neural network.** Text is converted into a multi-hot representation of word and two-word phrase features. A multilayer perceptron (MLP) predicts one of the intent categories.
 - **Responds in text and optionally in speech.** The browser's SpeechSynthesis API reads the response aloud when Voice Replies is enabled.
+- **Supports general-purpose responses.** Ollama can run `qwen3.5:2b` locally; classifier mode remains available for benchmark experiments.
 - **Handles uncertainty.** When the highest predicted probability is below the configured threshold, the bot asks the user to rephrase rather than treating every prediction as certain.
 - **Includes a training dataset and evaluation script.** The intent patterns and response text are editable in `intents.json`. Training writes a model, metadata, and metrics to `artifacts/`.
 - **Adapts to desktop and mobile screens.** The frontend uses plain HTML, CSS, and JavaScript; no Node.js build step is needed.
@@ -318,6 +319,8 @@ After installing the dependencies and training the model, run:
 python -m unittest discover -s tests -v
 ```
 
+The suite includes the original model checks, CLINC150 split and artifact checks, Flask compatibility checks, and mocked Ollama provider, timeout, unavailable-service, retrieval-formatting, and response-cleaning tests. The current checkout passes 13 tests.
+
 ## CLINC150 benchmark
 
 The optional benchmark uses the official CLINC150/OOS release from the [clinc/oos-eval repository](https://github.com/clinc/oos-eval), specifically `data/data_full.json`, saved as `data/clinc150/data_full.json`. The dataset is distributed under CC BY 4.0; cite Larson et al., *An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction* (EMNLP 2019), and retain the attribution when redistributing it.
@@ -384,3 +387,30 @@ python app.py
 ```
 
 Retrieval uses `sentence-transformers/all-MiniLM-L6-v2` on a small in-memory passage list. It is separate from CLINC150 training and does not alter classifier metrics. The prompt tells the model to use supplied evidence, distinguish unsupported claims, and admit when evidence is insufficient. Set `VOXASSIST_RETRIEVAL=0` (or unset it) to use Ollama without retrieval. Local prompts and retrieved text are sent to the local Ollama service; browser speech recognition may still use a browser vendor's online service.
+
+## Current interface behavior
+
+The web page is intentionally minimal: it contains the conversation session, quick prompts, text composer, microphone button, send button, clear button, and Voice Replies toggle. Training metrics and model comparison results are not shown in the chat interface. The server removes Markdown punctuation such as `**`, `*`, backticks, and the word `asterisk` before returning responses and before browser speech synthesis, so generated formatting is not spoken as punctuation names.
+
+## Complete Windows setup
+
+Use Python 3.12 from the project root:
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+For local Ollama mode, install Ollama, restart PowerShell so `ollama` is on `PATH`, and run:
+
+```powershell
+ollama pull qwen3.5:2b
+$env:VOXASSIST_PROVIDER = "ollama"
+$env:OLLAMA_MODEL = "qwen3.5:2b"
+$env:OLLAMA_TIMEOUT_SECONDS = "120"
+python app.py
+```
+
+Ollama mode returns `intent: "llm_response"` and `confidence: null`; those fields must not be interpreted as classifier metrics. If Ollama is unavailable, the API returns HTTP 503 with a setup message. The existing classifier and benchmark artifacts remain usable without Ollama.
