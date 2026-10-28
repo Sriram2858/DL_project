@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b1020" />
-  <meta name="description" content="VoxAssist is a responsive speech bot powered by a neural-network intent classifier." />
+  <meta name="description" content="A responsive speech assistant." />
   <title>VoxAssist — Responsive Speech Bot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
   <div class="ambient ambient-two" aria-hidden="true"></div>
 
   <div class="app-frame">
-    <header class="topbar">
+    <header class="topbar" hidden>
       <a class="brand" href="/" aria-label="VoxAssist home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 40 40" role="img"><path d="M20 6v28M14 11v18M26 11v18M8 16v8M32 16v8" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".28"/></svg>
@@ -30,17 +30,17 @@
     </header>
 
     <main>
-      <section class="hero-row">
+      <section class="hero-row" hidden>
         <div class="hero-copy">
           <div class="eyebrow"><span class="eyebrow-line"></span> CONVERSATIONAL AI, BUILT TO RESPOND</div>
-          <h1>Your voice.<br /><span>Understood.</span></h1>
-          <p class="hero-description">A speech-first assistant that turns words into intent, then intent into a helpful response.</p>
+          <h1>Ask anything.<br /><span>Speak or type.</span></h1>
+          <p class="hero-description">Use the microphone or enter a message below.</p>
           <div class="hero-meta">
             <span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5 16 5v4.2c0 4-2.5 6.6-6 8.3-3.5-1.7-6-4.3-6-8.3V5l6-2.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m7 9.8 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Local intent model</span>
             <span><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6.5" y="2.5" width="7" height="11" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4 9.5a6 6 0 0 0 12 0M10 15.5V18M7 18h6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Voice + text input</span>
           </div>
         </div>
-        <div class="voice-visual" aria-label="Decorative voice wave visualization">
+          <div class="voice-visual" aria-hidden="true">
           <div class="visual-orbit orbit-a"></div><div class="visual-orbit orbit-b"></div>
           <div class="visual-core"><div class="core-glow"></div><div class="wave-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
           <span class="float-tag tag-left"><span class="tag-marker"></span> LISTENING / THINKING</span>
@@ -64,7 +64,7 @@
 
           <div class="conversation-scroll" id="conversationScroll">
             <div class="date-divider"><span></span><small>YOUR SESSION STARTS HERE</small><span></span></div>
-            <div class="message-row bot-row">
+            <div class="message-row bot-row" hidden>
               <div class="avatar bot-avatar" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 5v3M6.5 12v4M10.5 9v10M14 7v14M17.5 9v10M21.5 12v4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></div>
               <div class="message-content"><div class="message-meta"><strong>VoxAssist</strong><span>AI ASSISTANT</span></div><div class="bubble bot-bubble">Hey there! I'm VoxAssist. Ask me about deep learning, speech recognition, or this project — or tap the microphone and just speak. <span class="bubble-time">NOW</span></div></div>
             </div>
@@ -91,7 +91,7 @@
           </div>
         </section>
 
-        <aside class="side-column">
+          <aside class="side-column" hidden>
           <section class="model-card panel">
             <div class="side-card-head"><span class="section-kicker">UNDER THE HOOD</span><span class="live-pill"><i></i> LIVE</span></div>
             <h2>A little intelligence<br />behind the voice.</h2>

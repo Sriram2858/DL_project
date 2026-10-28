@@ -318,6 +318,37 @@ After installing the dependencies and training the model, run:
 python -m unittest discover -s tests -v
 ```
 
+## CLINC150 benchmark
+
+The optional benchmark uses the official CLINC150/OOS release from the [clinc/oos-eval repository](https://github.com/clinc/oos-eval), specifically `data/data_full.json`, saved as `data/clinc150/data_full.json`. The dataset is distributed under CC BY 4.0; cite Larson et al., *An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction* (EMNLP 2019), and retain the attribution when redistributing it.
+
+Download and validate the six official splits without repartitioning them:
+
+```powershell
+python download_clinc150.py
+python train_benchmark.py
+```
+
+`train_benchmark.py` fits both models on `train` plus `oos_train`, selects the OOS cutoff using only `val` plus `oos_val`, and evaluates once on `test` plus `oos_test`. It writes `artifacts/comparison_metrics.json` and `artifacts/comparison_metrics.csv`, along with `clinc_mlp_model.pt`, `clinc_mlp_metadata.json`, `clinc_svm.joblib`, and `clinc_svm_metadata.json`. The MLP reuses the existing 128/64/ReLU/dropout architecture with training-only binary word and bigram features. The baseline is `TfidfVectorizer(ngram_range=(1, 2))` plus `LinearSVC`.
+
+The recorded final test results from this checkout are:
+
+| model | in-domain accuracy | overall accuracy | macro F1 | OOS precision / recall / F1 | OOS false rejection |
+|---|---:|---:|---:|---:|---:|
+| MLP | 86.53% | 77.67% | 0.825 | 0.737 / 0.378 / 0.500 | 3.00% |
+| TF-IDF + LinearSVC | 90.38% | 83.09% | 0.867 | 0.813 / 0.503 / 0.621 | 2.58% |
+
+The MLP took about 59.7 seconds to train and its saved benchmark artifacts total about 16.2 MB; SVM training took about 2.2 seconds and its artifacts total about 36.8 MB. These figures are CPU and environment dependent. The full confusion summaries and exact values are in the JSON report.
+
+Select a benchmark model without changing the frontend or API contract:
+
+```powershell
+$env:VOXASSIST_MODEL = "mlp"  # or "svm"
+python app.py
+```
+
+Unset `VOXASSIST_MODEL` to use the original `model.pt` classifier. MLP softmax confidence and SVM decision scores are model-specific scores, not directly comparable probabilities. CLINC intents without authored entries in `intents.json` receive a transparent generic response; the classifier does not generate factual answers.
+
 ## Ideas for future work
 
 - Grow and balance the dataset using real, varied user utterances.
@@ -326,3 +357,30 @@ python -m unittest discover -s tests -v
 - Support additional languages and adjustable speech-recognition locales.
 - Add an optional local speech-recognition engine for offline transcription.
 - Add session export only with an explicit user choice and clear privacy controls.
+
+## Expanding the response domain
+
+`intents.json` remains the small authored-response set used by the original demo. CLINC150 expands intent coverage for benchmarking, but it is still an intent dataset rather than a general knowledge source. For broader questions, a stronger next step is a pretrained text encoder such as a sentence-transformer: fine-tune it on labelled intents, or retrieve the closest approved answer from a larger domain-specific FAQ/document collection. Keep retrieval separate from classification, require a confidence or similarity threshold, and return a fallback when no source is sufficiently relevant. This avoids presenting an intent label as if it were factual knowledge. A production version should also add domain-specific training data and a held-out test set instead of relying only on generic public intents.
+
+## General-purpose Ollama responses
+
+Classifier mode remains the default and continues to use the original MLP, CLINC150 MLP, or CLINC150 SVM selected with `VOXASSIST_MODEL`. For free-form responses, install [Ollama](https://ollama.com/download), start it, and download the configured local model:
+
+```powershell
+ollama pull qwen3.5:2b
+$env:VOXASSIST_PROVIDER = "ollama"
+$env:OLLAMA_MODEL = "qwen3.5:2b"
+python app.py
+```
+
+The provider calls Ollama's local `/api/chat` endpoint with a timeout. If Ollama is stopped, the model is missing, or the request times out, `/api/chat` returns HTTP 503 with a setup error instead of pretending a classifier produced the answer. LLM responses use `intent: "llm_response"`, `provider: "ollama"`, and `confidence: null`; they are free-form generation and must not be interpreted as intent-classification scores.
+
+Optional retrieval can ground responses in approved local `.txt` and `.md` files. Put those files under `knowledge/`, install the optional dependency, and enable it:
+
+```powershell
+python -m pip install -r requirements-llm.txt
+$env:VOXASSIST_RETRIEVAL = "1"
+python app.py
+```
+
+Retrieval uses `sentence-transformers/all-MiniLM-L6-v2` on a small in-memory passage list. It is separate from CLINC150 training and does not alter classifier metrics. The prompt tells the model to use supplied evidence, distinguish unsupported claims, and admit when evidence is insufficient. Set `VOXASSIST_RETRIEVAL=0` (or unset it) to use Ollama without retrieval. Local prompts and retrieved text are sent to the local Ollama service; browser speech recognition may still use a browser vendor's online service.

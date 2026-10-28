@@ -97,6 +97,10 @@
     })[character]);
   }
 
+  function cleanResponseText(value) {
+    return String(value || '').replace(/[`*_~]/g, '').replace(/\basterisks?\b/gi, '').replace(/[ \t]{2,}/g, ' ').trim();
+  }
+
   function timestamp() {
     return new Intl.DateTimeFormat([], { hour: '2-digit', minute: '2-digit' }).format(new Date());
   }
@@ -114,7 +118,7 @@
     const avatar = isBot
       ? '<div class="avatar bot-avatar" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 5v3M6.5 12v4M10.5 9v10M14 7v14M17.5 9v10M21.5 12v4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></div>'
       : '<div class="avatar user-avatar" aria-hidden="true">YOU</div>';
-    const name = isBot ? 'VoxAssist' : 'YOU';
+    const name = isBot ? 'Assistant' : 'YOU';
     const subtitle = isBot ? 'AI ASSISTANT' : 'MESSAGE SENT';
     let extra = '';
     if (isBot && metadata) {
@@ -123,7 +127,8 @@
         : `Fallback · ${Math.round(metadata.confidence * 100)}% top score`;
       extra = `<div class="intent-chip"><i class="confidence-dot"></i>${escapeHtml(detail)}</div>`;
     }
-    row.innerHTML = `${avatar}<div class="message-content"><div class="message-meta"><strong>${name}</strong><span>${subtitle}</span></div><div class="bubble ${isBot ? 'bot-bubble' : 'user-bubble'}">${escapeHtml(text)}<span class="bubble-time">${timestamp()}</span></div>${extra}</div>`;
+    const displayText = cleanResponseText(text);
+    row.innerHTML = `${avatar}<div class="message-content"><div class="message-meta"><strong>${name}</strong><span>${subtitle}</span></div><div class="bubble ${isBot ? 'bot-bubble' : 'user-bubble'}">${escapeHtml(displayText)}<span class="bubble-time">${timestamp()}</span></div>${extra}</div>`;
     messageList.appendChild(row);
     scrollToLatest();
     return row;
@@ -133,7 +138,7 @@
     const row = document.createElement('div');
     row.className = 'message-row bot-row';
     row.id = 'typingIndicator';
-    row.innerHTML = '<div class="avatar bot-avatar" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 5v3M6.5 12v4M10.5 9v10M14 7v14M17.5 9v10M21.5 12v4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></div><div class="message-content"><div class="message-meta"><strong>VoxAssist</strong><span>THINKING</span></div><div class="bubble typing-bubble" aria-label="VoxAssist is thinking"><i></i><i></i><i></i></div></div>';
+    row.innerHTML = '<div class="avatar bot-avatar" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 5v3M6.5 12v4M10.5 9v10M14 7v14M17.5 9v10M21.5 12v4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg></div><div class="message-content"><div class="message-meta"><strong>Assistant</strong><span>THINKING</span></div><div class="bubble typing-bubble" aria-label="Assistant is thinking"><i></i><i></i><i></i></div></div>';
     messageList.appendChild(row);
     scrollToLatest();
     return row;
@@ -142,7 +147,7 @@
   function speak(text) {
     if (!voiceRepliesEnabled || !('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
+    const utterance = new SpeechSynthesisUtterance(cleanResponseText(text));
     utterance.lang = 'en-IN';
     utterance.rate = 1.0;
     utterance.pitch = 1.02;

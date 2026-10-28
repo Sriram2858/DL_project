@@ -1,0 +1,148 @@
+{
+  "dataset": "CLINC150 data_full.json",
+  "citation": "Larson et al., OOS evaluation dataset, CC BY 4.0",
+  "splits": {
+    "train": 15000,
+    "val": 3000,
+    "test": 4500,
+    "oos_train": 100,
+    "oos_val": 100,
+    "oos_test": 1000
+  },
+  "models": [
+    {
+      "model": "mlp",
+      "in_domain_accuracy": 0.8653333333333333,
+      "overall_accuracy": 0.7767272727272727,
+      "macro_precision": 0.8048696448081555,
+      "macro_recall": 0.8621059602649008,
+      "macro_f1": 0.8248539858340626,
+      "oos_precision": 0.7368421052631579,
+      "oos_recall": 0.378,
+      "oos_f1": 0.4996695307336418,
+      "oos_false_rejection_rate": 0.03,
+      "oos_threshold": 0.09185810387134552,
+      "top_confusions": [
+        {
+          "count": 49,
+          "actual": "oos",
+          "predicted": "greeting"
+        },
+        {
+          "count": 22,
+          "actual": "oos",
+          "predicted": "who_made_you"
+        },
+        {
+          "count": 22,
+          "actual": "oos",
+          "predicted": "income"
+        },
+        {
+          "count": 17,
+          "actual": "oos",
+          "predicted": "todo_list"
+        },
+        {
+          "count": 16,
+          "actual": "oos",
+          "predicted": "what_can_i_ask_you"
+        },
+        {
+          "count": 16,
+          "actual": "oos",
+          "predicted": "restaurant_suggestion"
+        },
+        {
+          "count": 15,
+          "actual": "yes",
+          "predicted": "oos"
+        },
+        {
+          "count": 14,
+          "actual": "oos",
+          "predicted": "current_location"
+        },
+        {
+          "count": 14,
+          "actual": "improve_credit_score",
+          "predicted": "credit_score"
+        },
+        {
+          "count": 13,
+          "actual": "oos",
+          "predicted": "transactions"
+        }
+      ],
+      "training_time_seconds": 59.6897446999792,
+      "artifact_size_bytes": 16986227
+    },
+    {
+      "model": "svm",
+      "in_domain_accuracy": 0.9037777777777778,
+      "overall_accuracy": 0.8309090909090909,
+      "macro_precision": 0.8466934910209665,
+      "macro_recall": 0.9011236203090508,
+      "macro_f1": 0.8674068154338559,
+      "oos_precision": 0.8126009693053312,
+      "oos_recall": 0.503,
+      "oos_f1": 0.6213712168004941,
+      "oos_false_rejection_rate": 0.025777777777777778,
+      "oos_threshold": -0.5241794907638635,
+      "top_confusions": [
+        {
+          "count": 29,
+          "actual": "oos",
+          "predicted": "who_made_you"
+        },
+        {
+          "count": 15,
+          "actual": "oos",
+          "predicted": "find_phone"
+        },
+        {
+          "count": 14,
+          "actual": "oos",
+          "predicted": "calculator"
+        },
+        {
+          "count": 13,
+          "actual": "oos",
+          "predicted": "sync_device"
+        },
+        {
+          "count": 13,
+          "actual": "oos",
+          "predicted": "how_old_are_you"
+        },
+        {
+          "count": 13,
+          "actual": "oos",
+          "predicted": "bill_balance"
+        },
+        {
+          "count": 12,
+          "actual": "change_user_name",
+          "predicted": "user_name"
+        },
+        {
+          "count": 11,
+          "actual": "oos",
+          "predicted": "w2"
+        },
+        {
+          "count": 11,
+          "actual": "oos",
+          "predicted": "pto_used"
+        },
+        {
+          "count": 10,
+          "actual": "oos",
+          "predicted": "travel_suggestion"
+        }
+      ],
+      "training_time_seconds": 2.19569770002272,
+      "artifact_size_bytes": 38587155
+    }
+  ]
+}
