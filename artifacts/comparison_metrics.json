@@ -74,7 +74,7 @@
           "predicted": "transactions"
         }
       ],
-      "training_time_seconds": 59.6897446999792,
+      "training_time_seconds": 49.894239199813455,
       "artifact_size_bytes": 16986227
     },
     {
@@ -141,7 +141,7 @@
           "predicted": "travel_suggestion"
         }
       ],
-      "training_time_seconds": 2.19569770002272,
+      "training_time_seconds": 2.3472421998158097,
       "artifact_size_bytes": 38587155
     }
   ]

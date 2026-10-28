@@ -96,6 +96,11 @@ def main() -> None:
     torch.manual_seed(SEED)
     ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
+    source_data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    pattern_responses = {
+        item["tag"]: item.get("pattern_responses", {})
+        for item in source_data["intents"]
+    }
     texts, labels, tags, responses, _ = load_dataset()
     train_indices, validation_indices = split_by_class(labels)
 
@@ -132,7 +137,8 @@ def main() -> None:
         "vocabulary": full_vocabulary,
         "tags": tags,
         "responses": responses,
-        "fallback_responses": json.loads(DATA_PATH.read_text(encoding="utf-8"))["fallback_responses"],
+        "pattern_responses": pattern_responses,
+        "fallback_responses": source_data["fallback_responses"],
         "confidence_threshold": 0.46,
         "training_examples": len(texts),
         "num_intents": len(tags),

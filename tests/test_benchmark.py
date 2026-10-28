@@ -29,6 +29,11 @@ class BenchmarkTests(unittest.TestCase):
         self.assertTrue((ROOT / "artifacts/clinc_mlp_model.pt").exists())
         self.assertTrue((ROOT / "artifacts/clinc_svm.joblib").exists())
 
+    def test_authored_intent_set_is_expanded(self):
+        authored = json.loads((ROOT / "intents.json").read_text(encoding="utf-8"))
+        self.assertGreaterEqual(len(authored["intents"]), 50)
+        self.assertEqual(len({item["tag"] for item in authored["intents"]}), len(authored["intents"]))
+
     def test_flask_api_compatibility_and_validation(self):
         import app
         client = app.app.test_client()
@@ -36,6 +41,15 @@ class BenchmarkTests(unittest.TestCase):
         self.assertIn(health.status_code, (200, 503))
         self.assertEqual(client.post("/api/chat", json={"message": ""}).status_code, 400)
         self.assertEqual(client.post("/api/chat", json={"message": "x" * 501}).status_code, 400)
+
+    def test_expanded_authored_intents_return_authored_replies(self):
+        import app
+        client = app.app.test_client()
+        coin = client.post("/api/chat", json={"message": "flip a coin"})
+        self.assertEqual(coin.status_code, 200)
+        self.assertEqual(coin.json["intent"], "coin_flip")
+        pattern_reply = app.metadata["pattern_responses"]["coin_flip"]["flip a coin"]
+        self.assertEqual(coin.json["response"], pattern_reply)
 
 
 if __name__ == "__main__":

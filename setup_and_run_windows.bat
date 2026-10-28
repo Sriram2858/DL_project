@@ -28,7 +28,7 @@ python -m pip install -r requirements.txt
 if errorlevel 1 goto failed
 
 if not exist "artifacts\model.pt" (
-    echo Training the intent classifier for the first time...
+    echo Training the 50-intent authored classifier for the first time...
     python train.py
     if errorlevel 1 goto failed
 )

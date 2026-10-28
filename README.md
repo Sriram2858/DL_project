@@ -7,12 +7,12 @@ VoxAssist is an end-to-end Deep Learning course project with two separate respon
 - **Accepts speech or text.** The microphone button uses the browser's Web Speech API when available. Typing remains available as a fallback.
 - **Classifies intent with a neural network.** Text is converted into a multi-hot representation of word and two-word phrase features. A multilayer perceptron (MLP) predicts one of the intent categories.
 - **Responds in text and optionally in speech.** The browser's SpeechSynthesis API reads the response aloud when Voice Replies is enabled.
-- **Supports general-purpose responses.** Ollama can run `qwen3.5:2b` locally; classifier mode remains available for benchmark experiments.
+- **Classifier-first by default.** CLINC150 + TF-IDF/LinearSVC is the default deployment classifier; the CLINC MLP, legacy `intents.json` model, and optional Ollama provider remain available.
 - **Handles uncertainty.** When the highest predicted probability is below the configured threshold, the bot asks the user to rephrase rather than treating every prediction as certain.
 - **Includes a training dataset and evaluation script.** The intent patterns and response text are editable in `intents.json`. Training writes a model, metadata, and metrics to `artifacts/`.
 - **Adapts to desktop and mobile screens.** The frontend uses plain HTML, CSS, and JavaScript; no Node.js build step is needed.
 
-> **Important speech/privacy note:** Neural-network inference runs in the local Flask process. Browser speech recognition may use an online service depending on the browser, so audio processing is not guaranteed to be offline. This demo does not save chat history or microphone recordings.
+> **Important speech/privacy note:** Neural-network inference runs in the local Flask process. Browser speech recognition may use an online service depending on the browser. This demo does not save chat history or microphone recordings.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ voxassist/
 ├── app.py                         # Flask server and /api/chat endpoint
 ├── train.py                       # Trains, evaluates, and saves the neural model
 ├── model_utils.py                 # Shared tokenizer, vectorizer, and MLP definition
-├── intents.json                   # Intent labels, example phrases, and responses
+├── intents.json                   # Authored labels, example phrases, and responses
 ├── requirements.txt               # Python dependencies
 ├── frontend/
 │   ├── templates/index.html       # Main responsive interface
@@ -68,16 +68,18 @@ voxassist/
     └── test_model.py              # Basic model and artifact checks
 ```
 
-## Training dataset (`intents.json`)
+## Training datasets and response catalogs
 
-The training dataset is the editable file **`intents.json`** in the project root. It is a small, hand-written educational text dataset created for this demo; it is not a downloaded benchmark dataset and it does not contain audio recordings. The browser turns speech into text first, then the neural network classifies that text.
+The original demo dataset is the editable **`intents.json`** file. It remains available for the legacy model and for authored responses. The classifier-first benchmark uses the official **CLINC150** utterances in `data/clinc150/data_full.json`; it preserves the official train, validation, test, and OOS splits and never uses test rows for fitting.
+
+CLINC150 supplies utterances and intent labels for the benchmark. It is not used as the authored response source. The conversational classifier uses the patterns and responses in `intents.json`; optional hybrid mode sends low-confidence or unsupported requests to Ollama.
 
 ### Dataset summary
 
 | Property | Value |
 |---|---:|
-| Intent categories | 22 |
-| Example text patterns | 352 |
+| Intent categories | 50 |
+| Example text patterns | 436 |
 | Patterns per intent | 16 |
 | Evaluation holdout | 66 patterns (about 20%) |
 | Patterns used to fit the evaluation model | 286 |
@@ -105,7 +107,7 @@ Each intent contains a `tag`, a list of example `patterns`, and a list of possib
 }
 ```
 
-The example above is abbreviated for illustration. The actual file contains 22 intents and 16 patterns for each intent. The intent tags are:
+The example above is abbreviated for illustration. The actual file contains 50 intents with varied example patterns and authored responses. The intent tags include project help, study support, calculator, weather, travel, banking, shopping, device, vehicle, and speech-related requests.
 
 | Intent tag | What it covers |
 |---|---|
@@ -136,9 +138,9 @@ The example above is abbreviated for illustration. The actual file contains 22 i
 
 1. `train.py` reads each non-empty string in every `patterns` list and assigns it the numeric class of its intent tag.
 2. Text is converted into binary multi-hot features based on individual words (unigrams) and adjacent two-word phrases (bigrams).
-3. A stratified, seeded 80/20 split is used to evaluate a model on held-out examples. With 352 patterns, this run evaluates on 66 examples and fits the evaluation model on the other 286.
-4. After evaluation, the deployable model is trained again on all 352 labelled patterns and saved under `artifacts/`.
-5. The model predicts one of the 22 intent classes. The app chooses a response associated with that tag, or returns a fallback when confidence is low.
+3. A stratified, seeded 80/20 split is used to evaluate a model on held-out examples. With 436 patterns, this run evaluates on 94 examples and fits the evaluation model on the other 342.
+4. After evaluation, the deployable model is trained again on all 436 labelled patterns and saved under `artifacts/`.
+5. The model predicts one of the 50 intent classes. The app chooses an authored response associated with that tag, or returns a fallback when confidence is low.
 
 ### Editing and extending the dataset
 
@@ -152,7 +154,7 @@ python train.py
 
 The script regenerates `artifacts/model.pt`, `artifacts/metadata.json`, and `artifacts/metrics.json`. Avoid using near-identical patterns across different tags because that can make classes ambiguous. Add varied examples for every intent and examine per-intent errors before relying on an overall accuracy figure.
 
-**Current limitation:** the included holdout result is about 50% accuracy, while the final model's training accuracy is 100%. That gap suggests overfitting and limited phrase diversity. The dataset is appropriate for demonstrating the end-to-end workflow, but is too small to claim robust real-world intent understanding.
+**Current limitation:** the current 50-intent holdout result is 36.2% accuracy and final training accuracy is 83.7%. This shows that the expanded dataset still needs more varied examples and tuning before it can claim robust real-world intent understanding.
 
 ## Requirements
 
@@ -291,9 +293,9 @@ The confidence threshold is stored in `artifacts/metadata.json` as `confidence_t
 - **Loss:** cross-entropy
 - **Optimizer:** Adam with learning rate 0.003 and weight decay 0.0001
 - **Random seed:** 42 for reproducible data split and training initialization
-- **Current dataset:** 352 hand-written example utterances across 22 intent categories
+- **Current dataset:** 436 hand-written example utterances across 50 intent categories
 
-The current small dataset produces a held-out accuracy of around **50%** in the included stratified holdout experiment (see the exact value in `artifacts/metrics.json`). The final model fits the training examples very well, so the gap between training and held-out performance is a sign of overfitting and limited phrase coverage. This is a useful and honest limitation to discuss in a course report. Improve it by collecting more varied labelled utterances, reviewing per-intent confusion, and comparing models or feature representations. Do not present the current result as production-grade accuracy.
+The current 50-intent dataset produces a held-out accuracy of **36.2%** and final training accuracy of **83.7%** in the included stratified holdout experiment (see `artifacts/metrics.json`). The gap indicates confusion and limited phrase coverage. Improve it by collecting more varied labelled utterances, reviewing per-intent confusion, and tuning the model. Do not present the current result as production-grade accuracy.
 
 ## API endpoints
 
@@ -350,7 +352,7 @@ $env:VOXASSIST_MODEL = "mlp"  # or "svm"
 python app.py
 ```
 
-Unset `VOXASSIST_MODEL` to use the original `model.pt` classifier. MLP softmax confidence and SVM decision scores are model-specific scores, not directly comparable probabilities. CLINC intents without authored entries in `intents.json` receive a transparent generic response; the classifier does not generate factual answers.
+Use `VOXASSIST_MODEL=mlp` for the PyTorch benchmark, or `VOXASSIST_MODEL=legacy` for the 50-intent authored model. MLP softmax confidence and SVM decision scores are model-specific scores, not directly comparable probabilities. Classifier responses come from `intents.json`; the classifier does not generate factual answers.
 
 ## Ideas for future work
 
@@ -363,7 +365,7 @@ Unset `VOXASSIST_MODEL` to use the original `model.pt` classifier. MLP softmax c
 
 ## Expanding the response domain
 
-`intents.json` remains the small authored-response set used by the original demo. CLINC150 expands intent coverage for benchmarking, but it is still an intent dataset rather than a general knowledge source. For broader questions, a stronger next step is a pretrained text encoder such as a sentence-transformer: fine-tune it on labelled intents, or retrieve the closest approved answer from a larger domain-specific FAQ/document collection. Keep retrieval separate from classification, require a confidence or similarity threshold, and return a fallback when no source is sufficiently relevant. This avoids presenting an intent label as if it were factual knowledge. A production version should also add domain-specific training data and a held-out test set instead of relying only on generic public intents.
+`intents.json` is now the expanded 50-intent authored-response set used by the conversational classifier. CLINC150 remains a separate benchmark dataset. For genuinely factual or open-ended answers, classifier mode falls back safely; optional hybrid mode can ask Ollama to generate a response. Keep generation separate from classification and retain a confidence threshold for out-of-scope requests.
 
 ## General-purpose Ollama responses
 
@@ -377,6 +379,16 @@ python app.py
 ```
 
 The provider calls Ollama's local `/api/chat` endpoint with a timeout. If Ollama is stopped, the model is missing, or the request times out, `/api/chat` returns HTTP 503 with a setup error instead of pretending a classifier produced the answer. LLM responses use `intent: "llm_response"`, `provider: "ollama"`, and `confidence: null`; they are free-form generation and must not be interpreted as intent-classification scores.
+
+For a broader experience that combines both systems, use hybrid mode:
+
+```powershell
+$env:VOXASSIST_PROVIDER = "hybrid"
+$env:VOXASSIST_MODEL = "svm"
+python app.py
+```
+
+Hybrid mode returns an authored classifier response when the predicted tag exists in `intents.json`. For an unmatched CLINC150 tag or a low-confidence classifier result, it asks Ollama to generate a general response. If Ollama is unavailable, hybrid mode safely returns the classifier fallback instead of failing the request. This is a routing strategy, not a claim that CLINC150 supplies factual answers.
 
 Optional retrieval can ground responses in approved local `.txt` and `.md` files. Put those files under `knowledge/`, install the optional dependency, and enable it:
 

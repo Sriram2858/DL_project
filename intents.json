@@ -24,7 +24,25 @@
         "Hello! I'm VoxAssist. What would you like to explore today?",
         "Hi there! Ask me a question or tap the microphone to speak.",
         "Hey! I'm ready when you are. How can I help?"
-      ]
+      ],
+      "pattern_responses": {
+        "hello": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "hi": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "hey there": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "good morning": "Good morning! What would you like to work on today—Deep Learning concepts, the VoxAssist project, or something else?",
+        "good afternoon": "Good afternoon! Send a question in the chat or use the microphone; I’ll help with the topics covered by this demo.",
+        "good evening": "Good evening! What would you like to explore? You can type a question or use voice input.",
+        "hello there": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "hi voxassist": "Hi! You’re chatting with VoxAssist. Try asking how the classifier works, or tap the microphone to speak.",
+        "hey assistant": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "how are you": "I’m ready to help. Ask me about VoxAssist, neural networks, speech input/output, or study planning.",
+        "hi there": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "hello assistant": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "hey voxassist": "Hi! You’re chatting with VoxAssist. Try asking how the classifier works, or tap the microphone to speak.",
+        "good day": "Hello! Ask a question about the project or a supported study topic, or use the microphone to speak.",
+        "how is it going": "I’m ready to help. Ask me about VoxAssist, neural networks, speech input/output, or study planning.",
+        "nice to meet you": "Nice to meet you too! I’m VoxAssist, a speech-friendly chatbot demonstration. What would you like to ask?"
+      }
     },
     {
       "tag": "goodbye",
@@ -50,7 +68,25 @@
         "Goodbye! Thanks for trying VoxAssist.",
         "See you next time. Keep learning!",
         "Take care, and have a great day!"
-      ]
+      ],
+      "pattern_responses": {
+        "bye": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "goodbye": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "see you later": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "talk to you later": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "that's all for now": "All right—we can stop here. Have a good day, and good luck with your work.",
+        "I am leaving": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "catch you later": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "exit the chat": "Understood. This ends the conversation; you can start a new one whenever you’re ready.",
+        "see you": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "have a good day": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "I will talk to you soon": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "thanks bye": "You’re welcome. Goodbye, and feel free to return when you have another question.",
+        "I need to go now": "Goodbye! Thanks for trying VoxAssist. Take care and keep learning.",
+        "end our conversation": "Understood. This ends the conversation; you can start a new one whenever you’re ready.",
+        "that's enough for today": "All right—we can stop here. Have a good day, and good luck with your work.",
+        "good night and goodbye": "Good night! Save your progress, and good luck with your studies."
+      }
     },
     {
       "tag": "thanks",
@@ -76,7 +112,25 @@
         "You're welcome!",
         "Happy to help. Ask me anything else whenever you're ready.",
         "Anytime! That's what I'm here for."
-      ]
+      ],
+      "pattern_responses": {
+        "thanks": "You’re welcome! Let me know what you’d like to tackle next.",
+        "thank you": "You’re welcome! Let me know what you’d like to tackle next.",
+        "thanks a lot": "You’re welcome! Let me know what you’d like to tackle next.",
+        "that was helpful": "You’re welcome! Let me know what you’d like to tackle next.",
+        "I appreciate it": "You’re welcome—I’m happy to help you work through it.",
+        "many thanks": "You’re welcome! Let me know what you’d like to tackle next.",
+        "thank you so much": "You’re welcome! Let me know what you’d like to tackle next.",
+        "great help": "Glad it was useful. Try a follow-up question to check your understanding.",
+        "you helped me": "You’re welcome! Let me know what you’d like to tackle next.",
+        "much appreciated": "You’re welcome—I’m happy to help you work through it.",
+        "that answered my question": "Glad that answered it. If another part is unclear, ask about that specific step.",
+        "you are really helpful": "Glad it was useful. Try a follow-up question to check your understanding.",
+        "thanks for explaining": "You’re welcome! I’m glad the explanation helped. Ask for an example or a step-by-step version if you need one.",
+        "perfect thank you": "You’re welcome! Let me know what you’d like to tackle next.",
+        "I am grateful for the help": "You’re welcome—I’m happy to help you work through it.",
+        "awesome thanks": "You’re welcome! Let me know what you’d like to tackle next."
+      }
     },
     {
       "tag": "bot_identity",
@@ -101,7 +155,25 @@
       "responses": [
         "I'm VoxAssist, a responsive speech bot built as a Deep Learning course project.",
         "You can call me VoxAssist. I combine a neural-network intent classifier with speech input and spoken replies."
-      ]
+      ],
+      "pattern_responses": {
+        "what is your name": "I’m VoxAssist, a responsive speech-bot application built for the CSPE72 Deep Learning Techniques project by Team 7.",
+        "who are you": "I’m VoxAssist. The project combines a responsive chat interface, browser speech input and output, a Flask API, and intent-classification experiments using a PyTorch MLP and a TF-IDF + LinearSVC baseline.",
+        "tell me about yourself": "I’m VoxAssist. The project combines a responsive chat interface, browser speech input and output, a Flask API, and intent-classification experiments using a PyTorch MLP and a TF-IDF + LinearSVC baseline.",
+        "are you a bot": "Yes. VoxAssist is a software assistant prototype. In classifier mode it predicts an intent and selects a stored reply; in the optional Ollama mode it can generate a free-form response.",
+        "what should I call you": "I’m VoxAssist, a responsive speech-bot application built for the CSPE72 Deep Learning Techniques project by Team 7.",
+        "introduce yourself": "I’m VoxAssist. The project combines a responsive chat interface, browser speech input and output, a Flask API, and intent-classification experiments using a PyTorch MLP and a TF-IDF + LinearSVC baseline.",
+        "who am I talking to": "I’m VoxAssist, a speech-friendly chatbot developed as a Deep Learning course project. You can type a message or speak through the microphone.",
+        "what is voxassist": "I’m VoxAssist, a responsive speech-bot application built for the CSPE72 Deep Learning Techniques project by Team 7.",
+        "are you an AI assistant": "I’m VoxAssist, a speech-friendly chatbot developed as a Deep Learning course project. You can type a message or speak through the microphone.",
+        "your name please": "I’m VoxAssist, a responsive speech-bot application built for the CSPE72 Deep Learning Techniques project by Team 7.",
+        "what is this assistant called": "I’m VoxAssist, a responsive speech-bot application built for the CSPE72 Deep Learning Techniques project by Team 7.",
+        "are you a virtual assistant": "Yes. VoxAssist is a software assistant prototype. In classifier mode it predicts an intent and selects a stored reply; in the optional Ollama mode it can generate a free-form response.",
+        "tell me who you are": "I’m VoxAssist, a speech-friendly chatbot developed as a Deep Learning course project. You can type a message or speak through the microphone.",
+        "what does the name voxassist mean": "VoxAssist is the name chosen for this project’s responsive speech bot. The important idea is that it combines voice-friendly interaction with a Python-based text-processing backend.",
+        "introduce the bot": "Yes. VoxAssist is a software assistant prototype. In classifier mode it predicts an intent and selects a stored reply; in the optional Ollama mode it can generate a free-form response.",
+        "who created this assistant": "VoxAssist is the course-project application developed by Team 7. The repository contains the frontend, Flask backend, classifier training code, and speech interaction components."
+      }
     },
     {
       "tag": "capabilities",
@@ -126,7 +198,25 @@
       "responses": [
         "I can answer questions about this project and common study topics. You can type a message or use the microphone, and I can read my reply aloud.",
         "Try asking about deep learning, speech recognition, text to speech, neural networks, model training, study tips, or this project. Use the quick prompts below for examples."
-      ]
+      ],
+      "pattern_responses": {
+        "what can you do": "VoxAssist accepts text or speech, classifies supported requests in classifier mode, and can read replies aloud. A local Ollama mode is also available when configured.",
+        "how can you help me": "VoxAssist accepts text or speech, classifies supported requests in classifier mode, and can read replies aloud. A local Ollama mode is also available when configured.",
+        "show your features": "The interface supports typed messages, browser microphone transcription, text replies, optional spoken replies, and a Flask backend. The project also includes MLP and SVM intent-classification experiments.",
+        "what are your capabilities": "The interface supports typed messages, browser microphone transcription, text replies, optional spoken replies, and a Flask backend. The project also includes MLP and SVM intent-classification experiments.",
+        "what do you support": "Start with questions about Deep Learning, neural networks, intent classification, speech-to-text, text-to-speech, training, datasets, or the project architecture. The classifier is limited to supported intents.",
+        "tell me your functions": "The interface supports typed messages, browser microphone transcription, text replies, optional spoken replies, and a Flask backend. The project also includes MLP and SVM intent-classification experiments.",
+        "how do I use you": "Type a message and press Enter or the send button. To speak, select the microphone and grant browser permission. Use the Voice Replies toggle to control spoken output.",
+        "what can I ask you": "Start with questions about Deep Learning, neural networks, intent classification, speech-to-text, text-to-speech, training, datasets, or the project architecture. The classifier is limited to supported intents.",
+        "list your features": "The interface supports typed messages, browser microphone transcription, text replies, optional spoken replies, and a Flask backend. The project also includes MLP and SVM intent-classification experiments.",
+        "help me get started": "Try “Explain deep learning,” “How is the model trained?”, or “What is speech recognition?” You can type these or select a suggested prompt; microphone use depends on browser support.",
+        "what topics can you answer": "Start with questions about Deep Learning, neural networks, intent classification, speech-to-text, text-to-speech, training, datasets, or the project architecture. The classifier is limited to supported intents.",
+        "what can I do in this chat": "VoxAssist accepts text or speech, classifies supported requests in classifier mode, and can read replies aloud. A local Ollama mode is also available when configured.",
+        "how do I interact with the assistant": "Type a message and press Enter or the send button. To speak, select the microphone and grant browser permission. Use the Voice Replies toggle to control spoken output.",
+        "can you answer study questions": "Yes. The authored topics include Deep Learning concepts, neural networks, speech recognition, model training, study tips, exam preparation, and explanations of the VoxAssist project.",
+        "what features does the app have": "The interface supports typed messages, browser microphone transcription, text replies, optional spoken replies, and a Flask backend. The project also includes MLP and SVM intent-classification experiments.",
+        "give me an overview of your abilities": "VoxAssist accepts text or speech, classifies supported requests in classifier mode, and can read replies aloud. A local Ollama mode is also available when configured."
+      }
     },
     {
       "tag": "project_overview",
@@ -151,7 +241,25 @@
       "responses": [
         "VoxAssist is a responsive speech bot. The browser converts speech to text, a Python backend classifies the message with a feed-forward neural network, and the browser can speak the answer aloud using text to speech.",
         "The project demonstrates a complete speech interaction loop: microphone input, text transcription, neural-network intent classification, response selection, and optional spoken output. A text box remains available as a fallback."
-      ]
+      ],
+      "pattern_responses": {
+        "explain this project": "VoxAssist is a responsive speech-bot prototype. It accepts typed or transcribed messages, processes them through a configurable backend, and returns text with optional browser-based speech output.",
+        "what is the project about": "VoxAssist is a responsive speech-bot prototype. It accepts typed or transcribed messages, processes them through a configurable backend, and returns text with optional browser-based speech output.",
+        "give me the project overview": "VoxAssist is a responsive speech-bot prototype. It accepts typed or transcribed messages, processes them through a configurable backend, and returns text with optional browser-based speech output.",
+        "describe voxassist": "VoxAssist is a responsive speech-bot prototype. It accepts typed or transcribed messages, processes them through a configurable backend, and returns text with optional browser-based speech output.",
+        "what does this speech bot do": "VoxAssist is a responsive speech-bot prototype. It accepts typed or transcribed messages, processes them through a configurable backend, and returns text with optional browser-based speech output.",
+        "explain the application": "The page contains a conversation area and input controls. JavaScript sends messages to Flask’s `/api/chat` endpoint, which selects the configured classifier or language-model provider and returns the response.",
+        "tell me about the system": "VoxAssist is a responsive speech-bot prototype. It accepts typed or transcribed messages, processes them through a configurable backend, and returns text with optional browser-based speech output.",
+        "what problem does it solve": "The project addresses the need for a simple, responsive chat interface that accepts spoken or typed input. It demonstrates the complete path from speech transcription through text processing to a text or spoken response.",
+        "summarize the project": "VoxAssist is a responsive speech-bot prototype. It accepts typed or transcribed messages, processes them through a configurable backend, and returns text with optional browser-based speech output.",
+        "project introduction": "The purpose is to demonstrate a responsive speech bot and compare intent-classification approaches. It combines a web interface, Flask, a PyTorch MLP, a TF-IDF + LinearSVC baseline, and browser-provided speech features.",
+        "how does this speech bot work": "The browser transcribes speech into text, sends the message to Flask, and the backend routes it to the selected response provider. The result returns as JSON and appears in the conversation; browser speech synthesis can read it aloud.",
+        "walk me through the app": "The page contains a conversation area and input controls. JavaScript sends messages to Flask’s `/api/chat` endpoint, which selects the configured classifier or language-model provider and returns the response.",
+        "what is the purpose of voxassist": "The purpose is to demonstrate a responsive speech bot and compare intent-classification approaches. It combines a web interface, Flask, a PyTorch MLP, a TF-IDF + LinearSVC baseline, and browser-provided speech features.",
+        "explain the whole system in simple words": "You speak or type a message. VoxAssist turns speech into text, processes that text on the Python server, and returns an answer that can be displayed or spoken.",
+        "describe the pipeline of this app": "The browser transcribes speech into text, sends the message to Flask, and the backend routes it to the selected response provider. The result returns as JSON and appears in the conversation; browser speech synthesis can read it aloud.",
+        "what happens after I speak to the bot": "The browser transcribes speech into text, sends the message to Flask, and the backend routes it to the selected response provider. The result returns as JSON and appears in the conversation; browser speech synthesis can read it aloud."
+      }
     },
     {
       "tag": "deep_learning",
@@ -176,7 +284,25 @@
       "responses": [
         "Deep learning is a machine-learning approach that uses neural networks with multiple layers to learn useful representations from data. In VoxAssist, a multilayer neural network learns to map text features to intent categories.",
         "Think of deep learning as learning patterns through stacked computational layers. The model here receives a multi-hot vector of words and phrases, then predicts which intent best matches the message."
-      ]
+      ],
+      "pattern_responses": {
+        "what is deep learning": "Deep learning is a branch of machine learning that trains neural networks with multiple layers to learn patterns from examples. The learned weights are adjusted during training to reduce prediction error.",
+        "define deep learning": "Deep learning is a branch of machine learning that trains neural networks with multiple layers to learn patterns from examples. The learned weights are adjusted during training to reduce prediction error.",
+        "explain deep learning simply": "A deep-learning model passes data through several trainable layers. Each layer transforms the input, and training adjusts the weights to reduce a loss function. In VoxAssist, the MLP learns to map text features to intent categories.",
+        "how does deep learning work": "A deep-learning model passes data through several trainable layers. Each layer transforms the input, and training adjusts the weights to reduce a loss function. In VoxAssist, the MLP learns to map text features to intent categories.",
+        "why use deep learning": "Deep learning is useful when relationships in the data are too complex for simple rules. Its benefit depends on data quality and quantity; a small dataset can lead to overfitting, as the initial VoxAssist experiment illustrates.",
+        "deep learning meaning": "Deep learning is a branch of machine learning that trains neural networks with multiple layers to learn patterns from examples. The learned weights are adjusted during training to reduce prediction error.",
+        "what are deep neural networks": "A deep-learning model passes data through several trainable layers. Each layer transforms the input, and training adjusts the weights to reduce a loss function. In VoxAssist, the MLP learns to map text features to intent categories.",
+        "difference between machine learning and deep learning": "Machine learning is the broader field; deep learning is a subset that uses multi-layer neural networks to learn representations. Traditional ML often depends more on engineered features, while deep models can learn hierarchical features from sufficiently large datasets.",
+        "tell me about deep learning": "A deep-learning model passes data through several trainable layers. Each layer transforms the input, and training adjusts the weights to reduce a loss function. In VoxAssist, the MLP learns to map text features to intent categories.",
+        "explain DL": "A deep-learning model passes data through several trainable layers. Each layer transforms the input, and training adjusts the weights to reduce a loss function. In VoxAssist, the MLP learns to map text features to intent categories.",
+        "explain deep learning with an example": "For example, a vision network can learn edges in early layers and object parts in later layers. In VoxAssist, the MLP learns combinations of word and bigram features that help distinguish message intents.",
+        "why are multiple layers useful": "Each layer transforms the representation produced by the previous layer. Stacking layers with nonlinear activations lets a network model more complex relationships than a single linear transformation.",
+        "how are deep learning models different": "Machine learning is the broader field; deep learning is a subset that uses multi-layer neural networks to learn representations. Traditional ML often depends more on engineered features, while deep models can learn hierarchical features from sufficiently large datasets.",
+        "what does a deep learning system learn": "A deep-learning model passes data through several trainable layers. Each layer transforms the input, and training adjusts the weights to reduce a loss function. In VoxAssist, the MLP learns to map text features to intent categories.",
+        "give me a simple definition of DL": "Deep learning is a branch of machine learning that trains neural networks with multiple layers to learn patterns from examples. The learned weights are adjusted during training to reduce prediction error.",
+        "where is deep learning used in this project": "In VoxAssist, deep learning appears in the PyTorch multilayer perceptron used for intent classification. The network receives a binary vector of text features and predicts an intent label."
+      }
     },
     {
       "tag": "neural_network",
@@ -201,7 +327,25 @@
       "responses": [
         "A neural network consists of connected computational units with learnable weights. During training, it makes predictions, measures the error with a loss function, and updates weights through backpropagation and an optimizer.",
         "VoxAssist uses a feed-forward network with two hidden layers and ReLU activations. Its final layer produces scores for the supported intent classes."
-      ]
+      ],
+      "pattern_responses": {
+        "what is a neural network": "A neural network is a set of layers of connected computation. It learns weights from examples; in VoxAssist, the network uses a text-feature vector to predict the intent of a message.",
+        "explain neural networks": "A neural network is a set of layers of connected computation. It learns weights from examples; in VoxAssist, the network uses a text-feature vector to predict the intent of a message.",
+        "how does a neural network work": "A neural network is a set of layers of connected computation. It learns weights from examples; in VoxAssist, the network uses a text-feature vector to predict the intent of a message.",
+        "what are neurons and weights": "Weights determine how strongly one input feature affects a neuron. Training adjusts them so useful features contribute more to the correct class and misleading patterns contribute less.",
+        "what is an activation function": "An activation function adds nonlinearity to a neural network. VoxAssist uses ReLU in its hidden layers, which outputs max(0, x) and helps the model learn relationships beyond a single linear mapping.",
+        "why are hidden layers used": "Hidden layers learn intermediate combinations of the input features. VoxAssist’s two hidden layers transform the text vector before the output layer scores the intent classes.",
+        "explain forward propagation": "Forward propagation sends the input through each layer: linear transformation, activation, and subsequent layers, producing class logits. During training, the loss is computed from those logits and the correct label.",
+        "what is a feed forward network": "VoxAssist’s MLP is feed-forward: information travels from the input feature vector through hidden layers of 128 and 64 units to the output classes. ReLU activations and dropout are used in the hidden layers.",
+        "what is backpropagation": "Backpropagation computes how the loss changes with respect to each trainable parameter using the chain rule. An optimizer such as Adam uses these gradients to update the weights.",
+        "neural network basics": "A neural network is a set of layers of connected computation. It learns weights from examples; in VoxAssist, the network uses a text-feature vector to predict the intent of a message.",
+        "describe the architecture of the network": "VoxAssist’s MLP is feed-forward: information travels from the input feature vector through hidden layers of 128 and 64 units to the output classes. ReLU activations and dropout are used in the hidden layers.",
+        "what happens inside a hidden layer": "Hidden layers learn intermediate combinations of the input features. VoxAssist’s two hidden layers transform the text vector before the output layer scores the intent classes.",
+        "how do weights affect a prediction": "Weights determine how strongly one input feature affects a neuron. Training adjusts them so useful features contribute more to the correct class and misleading patterns contribute less.",
+        "explain neural network architecture": "VoxAssist’s MLP is feed-forward: information travels from the input feature vector through hidden layers of 128 and 64 units to the output classes. ReLU activations and dropout are used in the hidden layers.",
+        "how does a neuron calculate its output": "A basic neuron computes a weighted sum, z = w·x + b, then applies an activation function. In a layer, many such units work in parallel on the same input.",
+        "what is the output layer for": "The output layer produces one score (logit) per intent category. During inference, softmax can convert these scores to class probabilities for the MLP."
+      }
     },
     {
       "tag": "intent_classification",
@@ -226,7 +370,25 @@
       "responses": [
         "Intent classification maps a message to a category such as greeting, deep learning, or study tips. VoxAssist converts the text into features, obtains class probabilities from its neural network, and selects a response for the predicted intent.",
         "The model predicts one of the intent labels defined in intents.json. If its confidence is below a threshold, the bot uses a fallback response instead of pretending it understood."
-      ]
+      ],
+      "pattern_responses": {
+        "what is intent classification": "In NLP, an intent is the goal behind a message—for example, asking for a definition, greeting the bot, or requesting microphone help. Intent classification predicts that goal from the message text.",
+        "how do you understand my question": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "how does the bot identify intent": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "what is an intent in NLP": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "explain intent detection": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "how is text classified": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "how does the model choose an answer": "The classifier predicts a label, then the response handler looks up a response associated with that label. In the current design, response specificity depends on the response-selection logic, not only on classification accuracy.",
+        "what are the classes": "An intent class represents the purpose of a message, such as greeting, speech recognition, model training, or study tips. The classifier chooses among the labels it was trained to recognize.",
+        "why classify intents": "Intent classification is useful when a system must route a request to the right action or response. It is efficient for a bounded set of topics, but it cannot answer every arbitrary question by itself.",
+        "explain the prediction process": "The message is converted into a vector of text features, passed through the model, and assigned the highest-scoring intent. The label then drives response selection.",
+        "how does the bot understand what I say": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "how do you figure out what I mean": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "how does the model identify my question type": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "how is my message mapped to a category": "The message is converted into a vector of text features, passed through the model, and assigned the highest-scoring intent. The label then drives response selection.",
+        "explain the intent detection step": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback.",
+        "how does VoxAssist recognize a request": "VoxAssist classifies a message by converting text into features and predicting an intent label. The response handler uses that label to choose a reply; uncertain predictions trigger a fallback."
+      }
     },
     {
       "tag": "speech_recognition",
@@ -251,7 +413,25 @@
       "responses": [
         "Speech recognition converts spoken audio into text. In this project, the browser's Web Speech API handles transcription, and the resulting text is sent to the Flask backend for intent classification.",
         "The microphone button starts browser speech recognition. When a final transcript is available, VoxAssist sends the words to its local Python server. Recognition support depends on the browser and its speech service."
-      ]
+      ],
+      "pattern_responses": {
+        "what is speech recognition": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system.",
+        "how does voice input work": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system.",
+        "how do you hear me": "The browser receives microphone audio and its speech service produces text. VoxAssist sends the transcript—not a raw audio file—to the Flask chat endpoint for processing.",
+        "convert speech to text": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system.",
+        "explain speech to text": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system.",
+        "what is automatic speech recognition": "Automatic speech recognition (ASR) converts audio speech into a text transcript. VoxAssist uses the browser’s Web Speech API rather than training its own acoustic recognition model.",
+        "how is my voice transcribed": "The browser receives microphone audio and its speech service produces text. VoxAssist sends the transcript—not a raw audio file—to the Flask chat endpoint for processing.",
+        "how does the microphone work": "Pressing the microphone button starts the browser’s speech-recognition interface. When it returns a final transcript, the frontend places the text into the chat flow and sends it to Flask.",
+        "voice recognition in this project": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system.",
+        "what is ASR": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system.",
+        "how can I talk instead of type": "Select the microphone, grant permission, and speak clearly. The browser transcribes your words; if recognition is unavailable or permission is denied, you can still type the message.",
+        "what happens when I press the mic": "Pressing the microphone button starts the browser’s speech-recognition interface. When it returns a final transcript, the frontend places the text into the chat flow and sends it to Flask.",
+        "how does the app transcribe voice": "The browser receives microphone audio and its speech service produces text. VoxAssist sends the transcript—not a raw audio file—to the Flask chat endpoint for processing.",
+        "why do spoken words become text": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system.",
+        "how is audio input processed": "In this demo, audio processing is delegated to the browser Web Speech API. The returned text is sent to the Python backend; VoxAssist does not train a custom audio-to-text model.",
+        "describe the speech recognition component": "Speech recognition converts spoken words into text. VoxAssist relies on browser Web Speech API support, so behavior and network requirements can vary by browser and operating system."
+      }
     },
     {
       "tag": "text_to_speech",
@@ -276,7 +456,25 @@
       "responses": [
         "Text to speech converts written text into spoken audio. VoxAssist uses the browser's SpeechSynthesis API to read bot replies aloud, so a separate speech-generation model is not required.",
         "Use the Voice Replies control to enable or disable spoken answers. The browser and operating system provide the available voices."
-      ]
+      ],
+      "pattern_responses": {
+        "what is text to speech": "Text-to-speech converts written text into audio. VoxAssist calls the browser’s SpeechSynthesis API, so it does not train a separate TTS network.",
+        "how do you speak answers": "VoxAssist uses the browser’s SpeechSynthesis API to read generated or selected reply text aloud. Available voices, accents, and pronunciation depend on the device.",
+        "explain speech synthesis": "Text-to-speech converts written text into audio. VoxAssist calls the browser’s SpeechSynthesis API, so it does not train a separate TTS network.",
+        "convert text to audio": "VoxAssist uses the browser’s SpeechSynthesis API to read generated or selected reply text aloud. Available voices, accents, and pronunciation depend on the device.",
+        "what is TTS": "VoxAssist uses the browser’s SpeechSynthesis API to read generated or selected reply text aloud. Available voices, accents, and pronunciation depend on the device.",
+        "how can I hear the response": "When Voice Replies is enabled, the frontend passes the assistant’s text to SpeechSynthesis. Turn the control off if you prefer to read responses silently.",
+        "why is the bot speaking": "When Voice Replies is enabled, the frontend passes the assistant’s text to SpeechSynthesis. Turn the control off if you prefer to read responses silently.",
+        "how do I turn on voice replies": "Switch on the Voice Replies control in the conversation header. The browser’s SpeechSynthesis API will read new responses aloud, provided your browser and operating system expose a usable voice.",
+        "tell me about speech output": "VoxAssist uses the browser’s SpeechSynthesis API to read generated or selected reply text aloud. Available voices, accents, and pronunciation depend on the device.",
+        "how does audio response work": "VoxAssist uses the browser’s SpeechSynthesis API to read generated or selected reply text aloud. Available voices, accents, and pronunciation depend on the device.",
+        "can the bot read the answer aloud": "When Voice Replies is enabled, the frontend passes the assistant’s text to SpeechSynthesis. Turn the control off if you prefer to read responses silently.",
+        "how do I stop the spoken response": "Switch off Voice Replies to stop automatic spoken responses. If a response is already speaking, browser speech controls may also allow it to be cancelled.",
+        "how is an answer spoken by the browser": "VoxAssist uses the browser’s SpeechSynthesis API to read generated or selected reply text aloud. Available voices, accents, and pronunciation depend on the device.",
+        "what happens after the bot creates text": "After Flask returns a response, JavaScript displays it in the chat and, if Voice Replies is enabled, passes the text to the browser speech synthesizer.",
+        "which feature reads answers out loud": "VoxAssist uses the browser’s SpeechSynthesis API to read generated or selected reply text aloud. Available voices, accents, and pronunciation depend on the device.",
+        "how do I enable audio answers": "Switch on the Voice Replies control in the conversation header. The browser’s SpeechSynthesis API will read new responses aloud, provided your browser and operating system expose a usable voice."
+      }
     },
     {
       "tag": "model_training",
@@ -301,7 +499,25 @@
       "responses": [
         "Run python train.py to train the classifier. It builds a vocabulary from the patterns in intents.json, vectorizes examples, trains a multilayer perceptron with cross-entropy loss and Adam, and saves the model weights and metadata under artifacts/.",
         "The training script uses supervised learning: each example text is paired with an intent label. The model produces logits, cross-entropy measures classification error, and Adam updates the parameters by backpropagation."
-      ]
+      ],
+      "pattern_responses": {
+        "how is the model trained": "The MLP is trained with labelled example sentences. Text is represented by binary unigram and bigram features; the network learns class boundaries using cross-entropy loss and Adam.",
+        "explain the training process": "The MLP is trained with labelled example sentences. Text is represented by binary unigram and bigram features; the network learns class boundaries using cross-entropy loss and Adam.",
+        "what optimizer do you use": "The MLP uses Adam with a learning rate of 0.003 and weight decay of 0.0001. Adam adapts parameter updates using running estimates of gradients and squared gradients.",
+        "what loss function is used": "The classifier uses cross-entropy loss on its class logits and the true intent labels. It penalizes the model when probability is assigned poorly to the correct class.",
+        "how many layers are there": "The MLP has two hidden layers with 128 and 64 units, followed by an output layer with one logit per intent. The hidden layers use ReLU activations and dropout.",
+        "how do you train voxassist": "The MLP is trained with labelled example sentences. Text is represented by binary unigram and bigram features; the network learns class boundaries using cross-entropy loss and Adam.",
+        "what is the learning rate": "The current MLP training configuration sets the learning rate to 0.003. It controls the scale of optimizer updates; changing it can affect convergence and generalization.",
+        "what is cross entropy loss": "The classifier uses cross-entropy loss on its class logits and the true intent labels. It penalizes the model when probability is assigned poorly to the correct class.",
+        "how are model weights updated": "The network computes predictions, cross-entropy measures the error, and backpropagation calculates gradients. Adam then updates weights and biases to reduce that error over successive epochs.",
+        "tell me about training epochs": "The legacy training script runs 40 epochs for the held-out evaluation model and 45 epochs for the final model trained on all patterns. These are full passes through the training examples.",
+        "how are the weights learned": "The network computes predictions, cross-entropy measures the error, and backpropagation calculates gradients. Adam then updates weights and biases to reduce that error over successive epochs.",
+        "what happens when I run train py": "Running `python train.py` reads the intent patterns, builds text features, trains an evaluation model on a stratified training split, measures held-out accuracy, then fits and saves a final model and metadata.",
+        "describe the optimizer used by the model": "The MLP uses Adam with a learning rate of 0.003 and weight decay of 0.0001. Adam adapts parameter updates using running estimates of gradients and squared gradients.",
+        "how does backpropagation train this bot": "The network computes predictions, cross-entropy measures the error, and backpropagation calculates gradients. Adam then updates weights and biases to reduce that error over successive epochs.",
+        "what are the training hyperparameters": "The MLP is trained with labelled example sentences. Text is represented by binary unigram and bigram features; the network learns class boundaries using cross-entropy loss and Adam.",
+        "how many training rounds are run": "The legacy training script runs 40 epochs for the held-out evaluation model and 45 epochs for the final model trained on all patterns. These are full passes through the training examples."
+      }
     },
     {
       "tag": "dataset",
@@ -326,7 +542,25 @@
       "responses": [
         "The dataset is intents.json. Each intent contains a tag, example patterns, and possible responses. Add several varied patterns to teach a category, then rerun python train.py to rebuild the model.",
         "This is a small, hand-curated educational dataset rather than a large public benchmark. It is editable, making it easy to demonstrate how more examples can improve intent coverage."
-      ]
+      ],
+      "pattern_responses": {
+        "where is the dataset": "The authored examples are stored in `intents.json`; each intent has a tag, patterns, and responses. CLINC150 is used separately for the public benchmark experiments.",
+        "what data do you use": "The authored examples are stored in `intents.json`; each intent has a tag, patterns, and responses. CLINC150 is used separately for the public benchmark experiments.",
+        "explain the training dataset": "The authored examples are stored in `intents.json`; each intent has a tag, patterns, and responses. CLINC150 is used separately for the public benchmark experiments.",
+        "how can I add more questions": "Add natural variations to the relevant `patterns` list, keeping each sentence aligned with the intended tag. Include different wording rather than minor punctuation changes, then retrain and re-evaluate.",
+        "where are intents stored": "`intents.json` is in the project root. Each item groups an intent tag, example phrases, and response text. The legacy classifier is trained from these patterns; CLINC150 benchmark data is stored separately.",
+        "how do I add a new intent": "To add a classifier category, create an intent object with a unique `tag`, representative `patterns`, and suitable `responses`. Ensure the JSON is valid, then retrain and test the new category.",
+        "what is intents json": "`intents.json` is in the project root. Each item groups an intent tag, example phrases, and response text. The legacy classifier is trained from these patterns; CLINC150 benchmark data is stored separately.",
+        "how many categories are included": "The uploaded file contains 50 authored intent categories. The project also has a separate CLINC150 benchmark pipeline; those benchmark labels and the authored response categories serve different purposes.",
+        "can I customize responses": "Edit the `responses` field for the relevant intent in `intents.json`. In the pattern-specific version, each pattern can also be assigned its own response so answers target the exact question.",
+        "modify the dataset": "Open `intents.json` in the project root, edit the target intent’s patterns or responses, save valid JSON, and run `python train.py`. Then test both expected phrases and similar unseen phrasings.",
+        "how can I teach the bot another topic": "To add a classifier category, create an intent object with a unique `tag`, representative `patterns`, and suitable `responses`. Ensure the JSON is valid, then retrain and test the new category.",
+        "add a question and answer to the chatbot": "The authored examples are stored in `intents.json`; each intent has a tag, patterns, and responses. CLINC150 is used separately for the public benchmark experiments.",
+        "how do I edit the example sentences": "Add natural variations to the relevant `patterns` list, keeping each sentence aligned with the intended tag. Include different wording rather than minor punctuation changes, then retrain and re-evaluate.",
+        "where do I define the response messages": "Edit the `responses` field for the relevant intent in `intents.json`. In the pattern-specific version, each pattern can also be assigned its own response so answers target the exact question.",
+        "can I change the bot's training examples": "Add natural variations to the relevant `patterns` list, keeping each sentence aligned with the intended tag. Include different wording rather than minor punctuation changes, then retrain and re-evaluate.",
+        "how are labels and phrases organized": "`intents.json` is in the project root. Each item groups an intent tag, example phrases, and response text. The legacy classifier is trained from these patterns; CLINC150 benchmark data is stored separately."
+      }
     },
     {
       "tag": "study_tips",
@@ -351,7 +585,25 @@
       "responses": [
         "Try 25–40 minute focused sessions, define one small goal per session, and finish by recalling key ideas without looking at your notes. Short spaced reviews are usually more useful than one long cramming session.",
         "Break a difficult topic into concepts, work through one example, explain it in your own words, and test yourself later. Keep your phone away during focus sessions."
-      ]
+      ],
+      "pattern_responses": {
+        "give me study tips": "Set one measurable goal for the next study session, practise active recall instead of only rereading, and schedule short spaced reviews. Keep a list of mistakes so each session has a clear next step.",
+        "how should I study effectively": "Set one measurable goal for the next study session, practise active recall instead of only rereading, and schedule short spaced reviews. Keep a list of mistakes so each session has a clear next step.",
+        "help me focus while studying": "Choose one specific goal, silence notifications, and keep only the material needed for that task open. Work for 25–40 minutes, take a short break, and note distractions to handle later.",
+        "how can I learn faster": "Break the concept into smaller parts, study one worked example, then solve a similar problem without looking. Explain the idea in your own words and revisit it after a delay.",
+        "suggest a study routine": "Try three blocks: (1) 30–40 minutes learning one concept, (2) 20 minutes solving questions without notes, and (3) 10 minutes writing what remains unclear. Leave short breaks between blocks and review the same material later.",
+        "how do I avoid distractions": "Choose one specific goal, silence notifications, and keep only the material needed for that task open. Work for 25–40 minutes, take a short break, and note distractions to handle later.",
+        "tips for studying difficult topics": "Break the concept into smaller parts, study one worked example, then solve a similar problem without looking. Explain the idea in your own words and revisit it after a delay.",
+        "how to revise my notes": "Close your notes and write the key ideas from memory, then reopen them to correct gaps. Repeat the recall after a day and again several days later instead of rereading passively.",
+        "help me plan my studies": "Try three blocks: (1) 30–40 minutes learning one concept, (2) 20 minutes solving questions without notes, and (3) 10 minutes writing what remains unclear. Leave short breaks between blocks and review the same material later.",
+        "improve my study habits": "Make the first task small enough to start in five minutes—for example, solve one question or summarize one page. Track completed sessions rather than waiting to feel motivated.",
+        "I keep procrastinating when I study": "Make the first task small enough to start in five minutes—for example, solve one question or summarize one page. Track completed sessions rather than waiting to feel motivated.",
+        "how can I concentrate better": "Choose one specific goal, silence notifications, and keep only the material needed for that task open. Work for 25–40 minutes, take a short break, and note distractions to handle later.",
+        "what is a good way to learn a new concept": "Break the concept into smaller parts, study one worked example, then solve a similar problem without looking. Explain the idea in your own words and revisit it after a delay.",
+        "how do I study without getting distracted": "Set one measurable goal for the next study session, practise active recall instead of only rereading, and schedule short spaced reviews. Keep a list of mistakes so each session has a clear next step.",
+        "suggest a productive study schedule": "Try three blocks: (1) 30–40 minutes learning one concept, (2) 20 minutes solving questions without notes, and (3) 10 minutes writing what remains unclear. Leave short breaks between blocks and review the same material later.",
+        "how should I review what I learned": "Close your notes and write the key ideas from memory, then reopen them to correct gaps. Repeat the recall after a day and again several days later instead of rereading passively."
+      }
     },
     {
       "tag": "exam_prep",
@@ -376,7 +628,25 @@
       "responses": [
         "List the syllabus topics, rank them by importance and confidence, then alternate active recall with practice questions. Leave time to review mistakes instead of only rereading material.",
         "Start with a short diagnostic quiz, focus on weak areas, and solve questions under time limits. Protect sleep before the exam; it helps attention and recall."
-      ]
+      ],
+      "pattern_responses": {
+        "help me prepare for exams": "Start with a short self-test to locate weak areas, revise the underlying concepts, and solve practice questions. Review mistakes deliberately and leave time for a final spaced recap.",
+        "how do I revise before an exam": "Start with a short self-test to locate weak areas, revise the underlying concepts, and solve practice questions. Review mistakes deliberately and leave time for a final spaced recap.",
+        "exam preparation tips": "Start with a short self-test to locate weak areas, revise the underlying concepts, and solve practice questions. Review mistakes deliberately and leave time for a final spaced recap.",
+        "I have an exam soon": "Start with a short self-test to locate weak areas, revise the underlying concepts, and solve practice questions. Review mistakes deliberately and leave time for a final spaced recap.",
+        "how to practice for a test": "Solve questions under realistic time limits, mark each mistake by cause, and retry missed questions later without looking at the solution. This reveals whether you need concept review or more practice.",
+        "make revision more effective": "Start with a short self-test to locate weak areas, revise the underlying concepts, and solve practice questions. Review mistakes deliberately and leave time for a final spaced recap.",
+        "how should I study the night before": "Use the remaining time for high-yield revision and practice questions, not a full restart of the syllabus. Review mistakes, prepare required materials, and protect a normal amount of sleep.",
+        "help with exam planning": "List all topics, assign each a priority and estimated effort, and schedule the hardest topics earlier. Reserve the final day for formula sheets, key definitions, and reviewing errors from practice tests.",
+        "how do I remember concepts": "Use active recall: close the book, explain the concept, then check what you missed. Combine this with spaced repetition and worked examples; rereading alone can create a false sense of familiarity.",
+        "best way to revise a syllabus": "List all topics, assign each a priority and estimated effort, and schedule the hardest topics earlier. Reserve the final day for formula sheets, key definitions, and reviewing errors from practice tests.",
+        "my tests are coming up how should I prepare": "Solve questions under realistic time limits, mark each mistake by cause, and retry missed questions later without looking at the solution. This reveals whether you need concept review or more practice.",
+        "make a plan for my semester exams": "List all topics, assign each a priority and estimated effort, and schedule the hardest topics earlier. Reserve the final day for formula sheets, key definitions, and reviewing errors from practice tests.",
+        "what should I do three days before a test": "Use the remaining time for high-yield revision and practice questions, not a full restart of the syllabus. Review mistakes, prepare required materials, and protect a normal amount of sleep.",
+        "how do I practice questions efficiently": "Solve questions under realistic time limits, mark each mistake by cause, and retry missed questions later without looking at the solution. This reveals whether you need concept review or more practice.",
+        "help me prioritize exam topics": "Rank topics by exam importance and your current confidence. Spend the first block on high-value weak areas, then test yourself; revisit low-confidence topics after checking your mistakes.",
+        "how should I revise weak subjects": "Rank topics by exam importance and your current confidence. Spend the first block on high-value weak areas, then test yourself; revisit low-confidence topics after checking your mistakes."
+      }
     },
     {
       "tag": "project_report",
@@ -401,7 +671,25 @@
       "responses": [
         "A strong report can cover the problem statement, objectives, related work, system architecture, dataset and preprocessing, neural-network design, training procedure, evaluation metrics, interface, limitations, and future work. Report actual measured results from your run rather than inventing them.",
         "For evaluation, report held-out intent-classification accuracy and per-class precision, recall, or an F1 score where practical. Also discuss speech-recognition availability, the limited dataset, and confidence-threshold behavior."
-      ]
+      ],
+      "pattern_responses": {
+        "what should my project report contain": "Include the problem statement, gaps, architecture, algorithm, dataset, tools, results, differences from existing methods, contributions, learning outcomes, and AI-tool usage. Use actual values from the saved metrics files.",
+        "help me write the report": "Include the problem statement, gaps, architecture, algorithm, dataset, tools, results, differences from existing methods, contributions, learning outcomes, and AI-tool usage. Use actual values from the saved metrics files.",
+        "how do I explain the methodology": "Describe data loading and splits, text preprocessing, model architectures, training parameters, validation-based model selection, threshold selection, test evaluation, Flask integration, and browser speech handling.",
+        "what results should I report": "Report accuracy and macro-F1, include OOS precision/recall when using CLINC150, and show a confusion matrix or representative errors. State which split each metric came from and avoid using training accuracy as the main performance claim.",
+        "how should I present this project": "Include the problem statement, gaps, architecture, algorithm, dataset, tools, results, differences from existing methods, contributions, learning outcomes, and AI-tool usage. Use actual values from the saved metrics files.",
+        "what are the limitations": "Discuss the limited coverage of authored intents, possible confusion between similar categories, the gap between training and held-out accuracy, and the browser dependency of speech recognition. Separate these limitations from the CLINC150 benchmark results.",
+        "give me future work ideas": "Useful next steps include adding more varied utterances, analyzing per-intent errors, comparing classifiers on the same split, improving OOS detection, and testing speech input under different browsers and accents.",
+        "what should be in the conclusion": "The conclusion should restate the speech-bot objective, summarize the implemented pipeline, report measured classifier results, and state the main limitation without claiming that intent classification provides unrestricted language understanding.",
+        "how can I evaluate the model": "Report accuracy and macro-F1, include OOS precision/recall when using CLINC150, and show a confusion matrix or representative errors. State which split each metric came from and avoid using training accuracy as the main performance claim.",
+        "explain the project methodology": "Describe data loading and splits, text preprocessing, model architectures, training parameters, validation-based model selection, threshold selection, test evaluation, Flask integration, and browser speech handling.",
+        "help me prepare a presentation for this project": "A concise presentation can move from the problem and architecture to the dataset, two classifiers, demo workflow, evaluation results, limitations, and individual contributions. Use screenshots to support claims about the interface.",
+        "what should I include in the results section": "Report accuracy and macro-F1, include OOS precision/recall when using CLINC150, and show a confusion matrix or representative errors. State which split each metric came from and avoid using training accuracy as the main performance claim.",
+        "how do I write the methodology chapter": "Describe data loading and splits, text preprocessing, model architectures, training parameters, validation-based model selection, threshold selection, test evaluation, Flask integration, and browser speech handling.",
+        "suggest a structure for the final report": "Include the problem statement, gaps, architecture, algorithm, dataset, tools, results, differences from existing methods, contributions, learning outcomes, and AI-tool usage. Use actual values from the saved metrics files.",
+        "what can I say about model limitations": "Discuss the limited coverage of authored intents, possible confusion between similar categories, the gap between training and held-out accuracy, and the browser dependency of speech recognition. Separate these limitations from the CLINC150 benchmark results.",
+        "how should I discuss future enhancements": "Include the problem statement, gaps, architecture, algorithm, dataset, tools, results, differences from existing methods, contributions, learning outcomes, and AI-tool usage. Use actual values from the saved metrics files."
+      }
     },
     {
       "tag": "microphone_troubleshooting",
@@ -426,7 +714,25 @@
       "responses": [
         "Check that you are using a supported browser such as recent Chrome or Edge, open the app at http://127.0.0.1:5000, and allow microphone permission. Also check Windows microphone privacy settings and your selected input device.",
         "The app can still be tested with typed messages. For speech input, try Chrome or Edge, allow microphone access, confirm Windows recognizes your microphone, and reload the page. Speech recognition availability can depend on your browser and internet connection."
-      ]
+      ],
+      "pattern_responses": {
+        "my microphone is not working": "Open the app on `http://127.0.0.1:5000` in a recent Chrome or Edge browser, allow microphone access, and verify that Windows detects your microphone. Typing should still work if speech input fails.",
+        "cannot access the microphone": "In Chrome or Edge, open site permissions for `http://127.0.0.1:5000` and allow the microphone. Then check Windows Settings → Privacy & security → Microphone and ensure desktop apps can access it; reload the page afterward.",
+        "the mic button does nothing": "First confirm the site has microphone permission and that the microphone is selected in Windows sound settings. Reload the page, try current Chrome or Edge, and check the browser console if the button still does nothing.",
+        "voice input is not working": "First confirm the site has microphone permission and that the microphone is selected in Windows sound settings. Reload the page, try current Chrome or Edge, and check the browser console if the button still does nothing.",
+        "why can't you hear me": "Open the app on `http://127.0.0.1:5000` in a recent Chrome or Edge browser, allow microphone access, and verify that Windows detects your microphone. Typing should still work if speech input fails.",
+        "microphone permission denied": "In Chrome or Edge, open site permissions for `http://127.0.0.1:5000` and allow the microphone. Then check Windows Settings → Privacy & security → Microphone and ensure desktop apps can access it; reload the page afterward.",
+        "speech input failed": "Speech recognition may be unsupported or its service may be unavailable. Try a recent Chrome or Edge version, check connectivity and permissions, and use typed messages as a fallback.",
+        "fix microphone access": "In Chrome or Edge, open site permissions for `http://127.0.0.1:5000` and allow the microphone. Then check Windows Settings → Privacy & security → Microphone and ensure desktop apps can access it; reload the page afterward.",
+        "voice recognition is unavailable": "Speech recognition may be unsupported or its service may be unavailable. Try a recent Chrome or Edge version, check connectivity and permissions, and use typed messages as a fallback.",
+        "the browser cannot hear me": "Speech recognition may be unsupported or its service may be unavailable. Try a recent Chrome or Edge version, check connectivity and permissions, and use typed messages as a fallback.",
+        "how do I fix my mic": "Open the app on `http://127.0.0.1:5000` in a recent Chrome or Edge browser, allow microphone access, and verify that Windows detects your microphone. Typing should still work if speech input fails.",
+        "my mic stopped working": "First confirm the site has microphone permission and that the microphone is selected in Windows sound settings. Reload the page, try current Chrome or Edge, and check the browser console if the button still does nothing.",
+        "my microphone is not recognized": "Open Windows Settings → System → Sound and check whether the input device appears and its input meter moves. If it does not, reconnect the device or update its driver before testing VoxAssist again.",
+        "the microphone permission is blocked": "In Chrome or Edge, open site permissions for `http://127.0.0.1:5000` and allow the microphone. Then check Windows Settings → Privacy & security → Microphone and ensure desktop apps can access it; reload the page afterward.",
+        "why does voice capture fail": "Open the app on `http://127.0.0.1:5000` in a recent Chrome or Edge browser, allow microphone access, and verify that Windows detects your microphone. Typing should still work if speech input fails.",
+        "my laptop mic is not detected": "Open Windows Settings → System → Sound and check whether the input device appears and its input meter moves. If it does not, reconnect the device or update its driver before testing VoxAssist again."
+      }
     },
     {
       "tag": "browser_support",
@@ -451,10 +757,28 @@
       "responses": [
         "Recent Chrome or Edge on desktop is recommended for the Web Speech API. The page layout adapts to smaller screens, but speech-recognition support varies by browser and operating system; typed input is the fallback.",
         "The Flask app and neural-network prediction run locally. Browser speech recognition may use an online service, so the full voice workflow is not guaranteed to work offline. The interface itself is responsive on mobile-sized screens."
-      ]
+      ],
+      "pattern_responses": {
+        "which browser should I use": "Use a current version of Chrome or Microsoft Edge for the most reliable Web Speech API support. Open the app via `http://127.0.0.1:5000` and allow microphone permission.",
+        "does this work in chrome": "Use a current version of Chrome or Microsoft Edge for the most reliable Web Speech API support. Open the app via `http://127.0.0.1:5000` and allow microphone permission.",
+        "is firefox supported": "SpeechRecognition support is not uniform across browsers. Current Chrome or Edge is the recommended way to test this demo; the typed input path remains available when voice recognition is unsupported.",
+        "can I use edge": "Use a current version of Chrome or Microsoft Edge for the most reliable Web Speech API support. Open the app via `http://127.0.0.1:5000` and allow microphone permission.",
+        "why is speech recognition unsupported": "SpeechRecognition support is not uniform across browsers. Current Chrome or Edge is the recommended way to test this demo; the typed input path remains available when voice recognition is unsupported.",
+        "browser compatibility": "SpeechRecognition support is not uniform across browsers. Current Chrome or Edge is the recommended way to test this demo; the typed input path remains available when voice recognition is unsupported.",
+        "does it work offline": "The Flask classifier can run locally, but browser Web Speech recognition may rely on an online service. Therefore the complete voice workflow is not guaranteed to work offline; typed input can still work locally.",
+        "can I use this on my phone": "The page uses a responsive layout intended to fit smaller screens. Actual microphone support depends on the mobile browser and its Web Speech API implementation; test on the target device rather than assuming every browser supports it.",
+        "is the frontend responsive": "The frontend CSS adjusts the conversation layout and input controls for narrower screens. Use your browser’s device toolbar to check mobile widths and verify that the composer remains usable.",
+        "can I open it on mobile": "The page uses a responsive layout intended to fit smaller screens. Actual microphone support depends on the mobile browser and its Web Speech API implementation; test on the target device rather than assuming every browser supports it.",
+        "which browser is best for this speech bot": "Use a current version of Chrome or Microsoft Edge for the most reliable Web Speech API support. Open the app via `http://127.0.0.1:5000` and allow microphone permission.",
+        "does voice mode work on android": "The interface can be used from a modern browser; current Chrome or Edge is recommended for microphone input. Browser speech recognition may require internet access, while typed input is the fallback.",
+        "can this chatbot run on a tablet": "The page uses a responsive layout intended to fit smaller screens. Actual microphone support depends on the mobile browser and its Web Speech API implementation; test on the target device rather than assuming every browser supports it.",
+        "how can I test the mobile layout": "The page uses a responsive layout intended to fit smaller screens. Actual microphone support depends on the mobile browser and its Web Speech API implementation; test on the target device rather than assuming every browser supports it.",
+        "which browsers support the microphone feature": "The page uses a responsive layout intended to fit smaller screens. Actual microphone support depends on the mobile browser and its Web Speech API implementation; test on the target device rather than assuming every browser supports it.",
+        "can I use voice input without internet": "The interface can be used from a modern browser; current Chrome or Edge is recommended for microphone input. Browser speech recognition may require internet access, while typed input is the fallback."
+      }
     },
     {
-      "tag": "privacy",
+      "tag": "privacy_extended",
       "patterns": [
         "is my data stored",
         "what happens to my messages",
@@ -476,7 +800,25 @@
       "responses": [
         "The Flask backend processes the text you submit and does not save chat history or microphone recordings. Browser speech recognition may send audio to a browser-vendor service depending on its implementation, so avoid sensitive information and check your browser's privacy settings.",
         "Intent classification runs on your local Python server. The browser handles microphone transcription and spoken output; Web Speech recognition may rely on an online service. This demo does not include a database or persistent chat storage."
-      ]
+      ],
+      "pattern_responses": {
+        "is my data stored": "The basic demo does not include a database or persistent conversation log. Messages are handled during the request; browser speech-recognition privacy behavior is separate and may depend on the vendor.",
+        "what happens to my messages": "The basic demo does not include a database or persistent conversation log. Messages are handled during the request; browser speech-recognition privacy behavior is separate and may depend on the vendor.",
+        "is this project private": "The demo does not persist chat history or microphone recordings. Still, browser speech recognition may use an online service, so avoid entering confidential information and review your browser's speech-privacy settings.",
+        "does the app record audio": "The application code does not persist microphone recordings or chat history. The browser handles transcription, and its speech service may process audio according to the browser’s implementation.",
+        "are conversations saved": "The basic demo does not include a database or persistent conversation log. Messages are handled during the request; browser speech-recognition privacy behavior is separate and may depend on the vendor.",
+        "where does my voice go": "The message text is sent to the local Flask server for processing. Browser speech recognition may use a browser-vendor service, so audio may not remain entirely on the device; check the browser’s own privacy policy and settings.",
+        "explain the privacy design": "The demo does not persist chat history or microphone recordings. Still, browser speech recognition may use an online service, so avoid entering confidential information and review your browser's speech-privacy settings.",
+        "do you store my microphone audio": "The application code does not persist microphone recordings or chat history. The browser handles transcription, and its speech service may process audio according to the browser’s implementation.",
+        "is the model running locally": "Classifier inference runs in the local Flask process. If you switch to the optional Ollama provider, prompts are sent to the Ollama service you configured; check the provider configuration before assuming every component runs in the same process.",
+        "what data is sent to the server": "Classifier inference runs in the local Flask process. If you switch to the optional Ollama provider, prompts are sent to the Ollama service you configured; check the provider configuration before assuming every component runs in the same process.",
+        "does this chatbot keep a conversation log": "The demo does not persist chat history or microphone recordings. Still, browser speech recognition may use an online service, so avoid entering confidential information and review your browser's speech-privacy settings.",
+        "is my audio saved to a file": "The application code does not persist microphone recordings or chat history. The browser handles transcription, and its speech service may process audio according to the browser’s implementation.",
+        "does my message leave my computer": "The message text is sent to the local Flask server for processing. Browser speech recognition may use a browser-vendor service, so audio may not remain entirely on the device; check the browser’s own privacy policy and settings.",
+        "does the Python server store anything": "Classifier inference runs in the local Flask process. If you switch to the optional Ollama provider, prompts are sent to the Ollama service you configured; check the provider configuration before assuming every component runs in the same process.",
+        "can someone read my previous messages": "The basic demo does not include a database or persistent conversation log. Messages are handled during the request; browser speech-recognition privacy behavior is separate and may depend on the vendor.",
+        "is voice transcription always offline": "The message text is sent to the local Flask server for processing. Browser speech recognition may use a browser-vendor service, so audio may not remain entirely on the device; check the browser’s own privacy policy and settings."
+      }
     },
     {
       "tag": "joke",
@@ -502,7 +844,25 @@
         "Why did the neural network go to therapy? It had too many layers of issues.",
         "Why do programmers prefer dark mode? Because light attracts bugs.",
         "I asked my model for a joke. It returned a high-confidence result, but the humor still needs human evaluation."
-      ]
+      ],
+      "pattern_responses": {
+        "tell me a joke": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "make me laugh": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "say something funny": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "do you know a joke": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "give me a short joke": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "I need a laugh": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "share a programming joke": "Why did the programmer bring a ladder to work? The project had too many high-level requirements.",
+        "funny joke please": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "entertain me": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "one joke": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "tell me something amusing": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "make a joke about AI": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "give me a funny tech joke": "Why did the programmer bring a ladder to work? The project had too many high-level requirements.",
+        "do a quick comedy bit": "Why did the neural network stay calm during the exam? It had already learned to handle its loss.",
+        "another programming joke": "Why did the programmer bring a ladder to work? The project had too many high-level requirements.",
+        "say a nerdy joke": "Why did the programmer bring a ladder to work? The project had too many high-level requirements."
+      }
     },
     {
       "tag": "motivation",
@@ -527,7 +887,25 @@
       "responses": [
         "Progress comes from small iterations. Choose one feature you can finish today, test it, and build on that success. You do not need to understand everything at once.",
         "Being stuck is part of learning technical subjects. Write down what you know, isolate the next unknown, and test one idea at a time. Consistent effort beats trying to solve everything in one sitting."
-      ]
+      ],
+      "pattern_responses": {
+        "motivate me": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem.",
+        "I feel stuck with my project": "Make the next step small: reproduce one bug, fix one function, or test one endpoint. A finished small task gives you evidence of progress and makes the larger project easier to manage.",
+        "give me some encouragement": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem.",
+        "I am struggling to learn": "Try explaining the topic in one sentence, then work through a tiny example. Mark the exact point where it stops making sense and focus your next question there.",
+        "help me stay motivated": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem.",
+        "I cannot understand this topic": "Try explaining the topic in one sentence, then work through a tiny example. Mark the exact point where it stops making sense and focus your next question there.",
+        "I feel overwhelmed": "You do not need to solve everything at once. Write down what is working, choose the next testable problem, and treat a failed attempt as information about what to try next.",
+        "encourage me to keep going": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem.",
+        "I have lost confidence": "You do not need to solve everything at once. Write down what is working, choose the next testable problem, and treat a failed attempt as information about what to try next.",
+        "say something inspiring": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem.",
+        "I am having a hard time with coding": "Make the next step small: reproduce one bug, fix one function, or test one endpoint. A finished small task gives you evidence of progress and makes the larger project easier to manage.",
+        "please encourage me to continue": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem.",
+        "I need motivation to finish my assignment": "Make the next step small: reproduce one bug, fix one function, or test one endpoint. A finished small task gives you evidence of progress and makes the larger project easier to manage.",
+        "how do I keep going when I fail": "You do not need to solve everything at once. Write down what is working, choose the next testable problem, and treat a failed attempt as information about what to try next.",
+        "I feel like I am not learning enough": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem.",
+        "give me a little confidence boost": "Progress is built from repeated small attempts. Choose one concrete task, work on it for a short session, and record what you learned—even if the result is only identifying the next problem."
+      }
     },
     {
       "tag": "getting_started",
@@ -552,12 +930,507 @@
       "responses": [
         "Try: 'Explain deep learning', 'How is the model trained?', 'What is speech recognition?', 'Help me prepare for exams', or 'Explain this project'. You can type or use the microphone.",
         "Ask a short question about this project, neural networks, speech input/output, model training, study tips, or exam preparation. The quick-prompt chips below are good starting points."
-      ]
+      ],
+      "pattern_responses": {
+        "what kinds of questions can I ask": "Try one of these: “Explain backpropagation,” “How does speech recognition work?”, “Compare the MLP and SVM,” or “How do I fix microphone permission?” The classifier’s answers remain limited to supported categories.",
+        "give me example questions": "Try one of these: “Explain backpropagation,” “How does speech recognition work?”, “Compare the MLP and SVM,” or “How do I fix microphone permission?” The classifier’s answers remain limited to supported categories.",
+        "show sample prompts": "Try one of these: “Explain backpropagation,” “How does speech recognition work?”, “Compare the MLP and SVM,” or “How do I fix microphone permission?” The classifier’s answers remain limited to supported categories.",
+        "what topics do you know": "Try one of these: “Explain backpropagation,” “How does speech recognition work?”, “Compare the MLP and SVM,” or “How do I fix microphone permission?” The classifier’s answers remain limited to supported categories.",
+        "how do I ask a good question": "A useful prompt states the topic and what you need: for example, “Explain cross-entropy loss with a small numeric example” is clearer than “Explain AI.”",
+        "suggest something to try": "Begin with a short, specific question about the classifier, speech-to-text, text-to-speech, or the project architecture. Use a suggested prompt if you are unsure what the current system supports.",
+        "give me a demo": "Start with a quick prompt such as “Explain deep learning,” then try a longer paraphrase and an out-of-scope question. Test both typed and microphone input to see where the current classifier succeeds or falls back.",
+        "what should I say": "Begin with a short, specific question about the classifier, speech-to-text, text-to-speech, or the project architecture. Use a suggested prompt if you are unsure what the current system supports.",
+        "show me some examples": "Try one of these: “Explain backpropagation,” “How does speech recognition work?”, “Compare the MLP and SVM,” or “How do I fix microphone permission?” The classifier’s answers remain limited to supported categories.",
+        "what can I test": "Start with a quick prompt such as “Explain deep learning,” then try a longer paraphrase and an out-of-scope question. Test both typed and microphone input to see where the current classifier succeeds or falls back.",
+        "what are some example prompts to try": "Try one of these: “Explain backpropagation,” “How does speech recognition work?”, “Compare the MLP and SVM,” or “How do I fix microphone permission?” The classifier’s answers remain limited to supported categories.",
+        "give me a few things to ask": "Begin with a short, specific question about the classifier, speech-to-text, text-to-speech, or the project architecture. Use a suggested prompt if you are unsure what the current system supports.",
+        "show me how to test the assistant": "Start with a quick prompt such as “Explain deep learning,” then try a longer paraphrase and an out-of-scope question. Test both typed and microphone input to see where the current classifier succeeds or falls back.",
+        "recommend a first question": "Begin with a short, specific question about the classifier, speech-to-text, text-to-speech, or the project architecture. Use a suggested prompt if you are unsure what the current system supports.",
+        "how can I explore the bot": "Begin with a short, specific question about the classifier, speech-to-text, text-to-speech, or the project architecture. Use a suggested prompt if you are unsure what the current system supports.",
+        "suggest a question about the model": "Begin with a short, specific question about the classifier, speech-to-text, text-to-speech, or the project architecture. Use a suggested prompt if you are unsure what the current system supports."
+      }
+    },
+    {
+      "tag": "calculator",
+      "patterns": [
+        "calculate 1 plus 1",
+        "what is 20 percent of 50",
+        "help me solve a calculation"
+      ],
+      "responses": [
+        "I can help with basic arithmetic. Include the expression you want calculated.",
+        "Give me the numbers and operation for a calculation request."
+      ],
+      "pattern_responses": {
+        "calculate 1 plus 1": "1 + 1 = 2.",
+        "what is 20 percent of 50": "20% of 50 is 10. Calculate it as 0.20 × 50 = 10.",
+        "help me solve a calculation": "Send the full arithmetic expression, including the operation and numbers—for example, `(18 + 6) / 3`."
+      }
+    },
+    {
+      "tag": "coin_flip",
+      "patterns": [
+        "flip a coin",
+        "heads or tails",
+        "toss a coin"
+      ],
+      "responses": [
+        "The result is Heads.",
+        "The result is Tails."
+      ],
+      "pattern_responses": {
+        "flip a coin": "For a simulated fair coin toss, each outcome has a 50% chance. This demo's current response list is illustrative rather than a cryptographically random coin service.",
+        "heads or tails": "A fair coin has two possible outcomes: heads or tails, each with a probability of 50%. Ask for a toss if you want a simulated result.",
+        "toss a coin": "For a simulated fair coin toss, each outcome has a 50% chance. This demo's current response list is illustrative rather than a cryptographically random coin service."
+      }
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "what is the weather",
+        "will it rain today",
+        "weather forecast"
+      ],
+      "responses": [
+        "Live weather requires a location and weather service.",
+        "Tell me your city and check a current weather source."
+      ],
+      "pattern_responses": {
+        "what is the weather": "A current weather forecast needs your city or coordinates and a live weather service. This demo does not have a weather API connected.",
+        "will it rain today": "I can’t determine whether it will rain today without a live weather source and your location. Check a current local forecast; forecasts are location- and time-specific.",
+        "weather forecast": "A current weather forecast needs your city or coordinates and a live weather service. This demo does not have a weather API connected."
+      }
+    },
+    {
+      "tag": "time_date",
+      "patterns": [
+        "what time is it",
+        "what is today's date",
+        "current time"
+      ],
+      "responses": [
+        "The exact time depends on your device and time zone.",
+        "Check your system clock for the current date and time."
+      ],
+      "pattern_responses": {
+        "what time is it": "The time depends on your device’s time zone. Check the system clock; the chatbot does not currently query a dedicated time service.",
+        "what is today's date": "The date depends on your device’s locale and time zone. Check your system calendar for the current local date.",
+        "current time": "The time depends on your device’s time zone. Check the system clock; the chatbot does not currently query a dedicated time service."
+      }
+    },
+    {
+      "tag": "translation",
+      "patterns": [
+        "translate this sentence",
+        "say this in Spanish",
+        "translate to French"
+      ],
+      "responses": [
+        "Provide the text and target language for translation.",
+        "Tell me the phrase and language you want."
+      ],
+      "pattern_responses": {
+        "translate this sentence": "Paste the text and specify the target language. The current intent demo can identify a translation request, but accurate translation requires a translation or language-generation component.",
+        "say this in Spanish": "Please provide the sentence you want translated into Spanish. I need the source text to produce a useful translation.",
+        "translate to French": "Please provide the sentence and I can help translate it into French. The current classifier itself does not perform full translation."
+      }
+    },
+    {
+      "tag": "recipe",
+      "patterns": [
+        "give me a recipe",
+        "how do I cook pasta",
+        "suggest a recipe"
+      ],
+      "responses": [
+        "Tell me the dish, ingredients, servings, and dietary needs.",
+        "Include the food or ingredients you have."
+      ],
+      "pattern_responses": {
+        "give me a recipe": "Tell me the dish you want to make, the ingredients available, the number of servings, and any dietary constraints. That information is needed for a suitable recipe.",
+        "how do I cook pasta": "For a simple pasta dish: boil pasta in salted water until al dente, sauté garlic in olive oil, add tomatoes and herbs, then toss with a little pasta water. Tell me ingredients or dietary needs for a more tailored recipe.",
+        "suggest a recipe": "Tell me the dish you want to make, the ingredients available, the number of servings, and any dietary constraints. That information is needed for a suitable recipe."
+      }
+    },
+    {
+      "tag": "nutrition",
+      "patterns": [
+        "how many calories",
+        "is this food healthy",
+        "nutrition information"
+      ],
+      "responses": [
+        "Nutrition depends on food and portion size; check a trusted label.",
+        "Tell me the food and serving size."
+      ],
+      "pattern_responses": {
+        "how many calories": "Calories depend on the exact food, portion size, and preparation. Share the food and quantity (for example, 150 g cooked rice) for a more meaningful estimate.",
+        "is this food healthy": "Whether a food is nutritious depends on portion size and the overall diet. Share the food and serving size; for medical nutrition advice, consult a qualified professional.",
+        "nutrition information": "Whether a food is nutritious depends on portion size and the overall diet. Share the food and serving size; for medical nutrition advice, consult a qualified professional."
+      }
+    },
+    {
+      "tag": "restaurant",
+      "patterns": [
+        "find a restaurant",
+        "recommend a place to eat",
+        "restaurant suggestion"
+      ],
+      "responses": [
+        "Tell me your location, cuisine, budget, and dietary needs.",
+        "I can classify the request but cannot make live bookings."
+      ],
+      "pattern_responses": {
+        "find a restaurant": "To make a useful restaurant suggestion, provide your city or neighbourhood, preferred cuisine, budget per person, and any dietary requirements. This demo does not have live booking availability.",
+        "recommend a place to eat": "To make a useful restaurant suggestion, provide your city or neighbourhood, preferred cuisine, budget per person, and any dietary requirements. This demo does not have live booking availability.",
+        "restaurant suggestion": "To make a useful restaurant suggestion, provide your city or neighbourhood, preferred cuisine, budget per person, and any dietary requirements. This demo does not have live booking availability."
+      }
+    },
+    {
+      "tag": "travel_planning",
+      "patterns": [
+        "help plan a trip",
+        "suggest a destination",
+        "travel itinerary"
+      ],
+      "responses": [
+        "Tell me destination, dates, budget, and interests.",
+        "Live availability requires a travel service."
+      ],
+      "pattern_responses": {
+        "help plan a trip": "For a practical itinerary, share the destination, travel dates, starting city, budget, pace, and interests. Without dates and location, any plan would be too generic.",
+        "suggest a destination": "Tell me your destination or preferred region, dates, budget, and interests (nature, history, food, or relaxation). These details determine a useful travel plan.",
+        "travel itinerary": "For a practical itinerary, share the destination, travel dates, starting city, budget, pace, and interests. Without dates and location, any plan would be too generic."
+      }
+    },
+    {
+      "tag": "flight_help",
+      "patterns": [
+        "check my flight",
+        "flight status",
+        "book a flight"
+      ],
+      "responses": [
+        "Flight status and booking require the airline's live service.",
+        "Include the flight number and date."
+      ],
+      "pattern_responses": {
+        "check my flight": "Flight status needs an airline and flight number plus the travel date. Check the airline’s official flight-status page for live departure, arrival, or delay information.",
+        "flight status": "Flight status needs an airline and flight number plus the travel date. Check the airline’s official flight-status page for live departure, arrival, or delay information.",
+        "book a flight": "Flight booking or status checks require a live airline or travel service. Provide the flight number and date for guidance, but do not share booking credentials."
+      }
+    },
+    {
+      "tag": "bank_balance",
+      "patterns": [
+        "check my bank balance",
+        "money in my account",
+        "account balance"
+      ],
+      "responses": [
+        "I cannot access bank accounts; check your official banking app.",
+        "Never share account credentials here."
+      ],
+      "pattern_responses": {
+        "check my bank balance": "I cannot access your bank account or verify a balance. Check your bank’s official app or website, and never share your PIN, password, OTP, or full card details in chat.",
+        "money in my account": "I cannot access your bank account or verify a balance. Check your bank’s official app or website, and never share your PIN, password, OTP, or full card details in chat.",
+        "account balance": "I cannot access your bank account or verify a balance. Check your bank’s official app or website, and never share your PIN, password, OTP, or full card details in chat."
+      }
+    },
+    {
+      "tag": "card_issue",
+      "patterns": [
+        "my card was declined",
+        "card is not working",
+        "why was my card rejected"
+      ],
+      "responses": [
+        "Declines can result from limits, fraud checks, or merchant restrictions.",
+        "Check the issuer app or contact the card provider."
+      ],
+      "pattern_responses": {
+        "my card was declined": "A card decline may result from insufficient funds, spending limits, incorrect details, fraud controls, or a merchant restriction. Check your issuer’s app for the decline reason or contact the bank.",
+        "card is not working": "If your card is not working, check the issuer app for alerts, confirm the card is active, and verify the transaction details. Contact the issuer if the cause is not shown.",
+        "why was my card rejected": "A card decline may result from insufficient funds, spending limits, incorrect details, fraud controls, or a merchant restriction. Check your issuer’s app for the decline reason or contact the bank."
+      }
+    },
+    {
+      "tag": "transfer_money",
+      "patterns": [
+        "transfer money",
+        "send money to savings",
+        "move funds"
+      ],
+      "responses": [
+        "Complete transfers through your official banking service.",
+        "Verify account and recipient details first."
+      ],
+      "pattern_responses": {
+        "transfer money": "For safety, make a transfer only through your bank’s official app or website. Verify the recipient and amount before confirming, and never share an OTP or banking password in this chat.",
+        "send money to savings": "For safety, make a transfer only through your bank’s official app or website. Verify the recipient and amount before confirming, and never share an OTP or banking password in this chat.",
+        "move funds": "For safety, make a transfer only through your bank’s official app or website. Verify the recipient and amount before confirming, and never share an OTP or banking password in this chat."
+      }
+    },
+    {
+      "tag": "shopping",
+      "patterns": [
+        "help me buy something",
+        "where can I order this",
+        "shopping advice"
+      ],
+      "responses": [
+        "Tell me the item, budget, and requirements.",
+        "I cannot place orders, but I can classify the request."
+      ],
+      "pattern_responses": {
+        "help me buy something": "Tell me the item, budget, must-have features, and country or preferred shops. I can help structure a comparison, but this demo cannot place orders or verify live stock.",
+        "where can I order this": "Tell me the item, budget, must-have features, and country or preferred shops. I can help structure a comparison, but this demo cannot place orders or verify live stock.",
+        "shopping advice": "Tell me the item, budget, must-have features, and country or preferred shops. I can help structure a comparison, but this demo cannot place orders or verify live stock."
+      }
+    },
+    {
+      "tag": "order_status",
+      "patterns": [
+        "where is my order",
+        "track my package",
+        "order status"
+      ],
+      "responses": [
+        "Use the merchant tracking page or confirmation number.",
+        "I cannot access order systems from this demo."
+      ],
+      "pattern_responses": {
+        "where is my order": "Use the merchant’s official tracking page and the tracking number from your confirmation email. I cannot access your order account directly; avoid posting personal order details publicly.",
+        "track my package": "Use the merchant’s official tracking page and the tracking number from your confirmation email. I cannot access your order account directly; avoid posting personal order details publicly.",
+        "order status": "Use the merchant’s official tracking page and the tracking number from your confirmation email. I cannot access your order account directly; avoid posting personal order details publicly."
+      }
+    },
+    {
+      "tag": "reminder",
+      "patterns": [
+        "remind me later",
+        "set a reminder",
+        "create a reminder"
+      ],
+      "responses": [
+        "Include reminder text, date, and time.",
+        "Use your calendar or reminder app to create it."
+      ],
+      "pattern_responses": {
+        "remind me later": "A reminder needs the task, date, time, and time zone. This chatbot does not currently save reminders, so create the reminder in your calendar or phone app.",
+        "set a reminder": "A reminder needs the task, date, time, and time zone. This chatbot does not currently save reminders, so create the reminder in your calendar or phone app.",
+        "create a reminder": "A reminder needs the task, date, time, and time zone. This chatbot does not currently save reminders, so create the reminder in your calendar or phone app."
+      }
+    },
+    {
+      "tag": "calendar",
+      "patterns": [
+        "schedule a meeting",
+        "add to my calendar",
+        "calendar event"
+      ],
+      "responses": [
+        "A calendar event needs title, date, time, duration, and time zone.",
+        "This demo cannot edit your personal calendar."
+      ],
+      "pattern_responses": {
+        "schedule a meeting": "A calendar event needs a title, date, start time, duration, time zone, and optional attendees. This demo cannot edit your calendar; create the event in your calendar application.",
+        "add to my calendar": "A calendar event needs a title, date, start time, duration, time zone, and optional attendees. This demo cannot edit your calendar; create the event in your calendar application.",
+        "calendar event": "A calendar event needs a title, date, start time, duration, time zone, and optional attendees. This demo cannot edit your calendar; create the event in your calendar application."
+      }
+    },
+    {
+      "tag": "timer",
+      "patterns": [
+        "set a timer",
+        "count down ten minutes",
+        "start a countdown"
+      ],
+      "responses": [
+        "Include the timer duration; a browser-side timer can be added separately.",
+        "This classifier does not control your device timer."
+      ],
+      "pattern_responses": {
+        "set a timer": "Specify the duration, such as 5 minutes or 30 seconds. The current backend recognizes timer requests but does not control a device timer.",
+        "count down ten minutes": "A ten-minute countdown is 600 seconds. The current backend only classifies the timer request; it does not start a running timer.",
+        "start a countdown": "Specify the duration, such as 5 minutes or 30 seconds. The current backend recognizes timer requests but does not control a device timer."
+      }
+    },
+    {
+      "tag": "music",
+      "patterns": [
+        "play music",
+        "play the next song",
+        "change my playlist"
+      ],
+      "responses": [
+        "Music playback requires a connected music service.",
+        "This classifier cannot control playback."
+      ],
+      "pattern_responses": {
+        "play music": "Music playback needs a connected music service and user permissions. VoxAssist’s classifier can identify the request, but this application does not currently control a playlist or player.",
+        "play the next song": "Music playback needs a connected music service and user permissions. VoxAssist’s classifier can identify the request, but this application does not currently control a playlist or player.",
+        "change my playlist": "Music playback needs a connected music service and user permissions. VoxAssist’s classifier can identify the request, but this application does not currently control a playlist or player."
+      }
+    },
+    {
+      "tag": "phone",
+      "patterns": [
+        "find my phone",
+        "make a call",
+        "send a text"
+      ],
+      "responses": [
+        "Phone actions require device permissions and a connected service.",
+        "Use your phone's official application."
+      ],
+      "pattern_responses": {
+        "find my phone": "Calling, messaging, or locating a phone requires device permissions and a connected service. This web demo cannot perform those actions; use the phone’s built-in apps.",
+        "make a call": "Calling, messaging, or locating a phone requires device permissions and a connected service. This web demo cannot perform those actions; use the phone’s built-in apps.",
+        "send a text": "Calling, messaging, or locating a phone requires device permissions and a connected service. This web demo cannot perform those actions; use the phone’s built-in apps."
+      }
+    },
+    {
+      "tag": "location",
+      "patterns": [
+        "share my location",
+        "where am I",
+        "send my location"
+      ],
+      "responses": [
+        "Location sharing requires device permission and a trusted service.",
+        "This server does not read your GPS position."
+      ],
+      "pattern_responses": {
+        "share my location": "Location sharing requires explicit device permission and a trusted app or service. VoxAssist does not transmit your GPS location from this classifier demo.",
+        "where am I": "This web application does not automatically read your GPS or exact location. Check your device’s location service or provide a city manually for location-related guidance.",
+        "send my location": "Location sharing requires explicit device permission and a trusted app or service. VoxAssist does not transmit your GPS location from this classifier demo."
+      }
+    },
+    {
+      "tag": "vehicle_maintenance",
+      "patterns": [
+        "change my oil",
+        "check tire pressure",
+        "schedule car maintenance"
+      ],
+      "responses": [
+        "Vehicle maintenance depends on the manufacturer schedule.",
+        "Follow the owner's manual or consult a qualified mechanic."
+      ],
+      "pattern_responses": {
+        "change my oil": "Use the oil grade and change interval specified in the vehicle owner’s manual. The correct oil and interval depend on the engine and driving conditions.",
+        "check tire pressure": "Check tire pressure when the tires are cold and use the pressure stated on the vehicle placard or owner’s manual—not the maximum printed on the tire sidewall.",
+        "schedule car maintenance": "Follow the maintenance schedule for your exact make, model, engine, and year. The owner’s manual is the best source for service intervals; a qualified mechanic can inspect uncertain issues."
+      }
+    },
+    {
+      "tag": "privacy",
+      "patterns": [
+        "is my data private",
+        "do you save messages",
+        "what happens to my voice"
+      ],
+      "responses": [
+        "The demo does not save chat history or recordings, but browser speech may use a vendor service.",
+        "Avoid sharing sensitive information."
+      ],
+      "pattern_responses": {
+        "is my data private": "The demo does not persist chat history or microphone recordings. Still, browser speech recognition may use an online service, so avoid entering confidential information and review your browser's speech-privacy settings.",
+        "do you save messages": "The basic demo does not include a database or persistent conversation log. Messages are handled during the request; browser speech-recognition privacy behavior is separate and may depend on the vendor.",
+        "what happens to my voice": "The demo does not persist chat history or microphone recordings. Still, browser speech recognition may use an online service, so avoid entering confidential information and review your browser's speech-privacy settings."
+      }
+    },
+    {
+      "tag": "browser_help",
+      "patterns": [
+        "which browser should I use",
+        "microphone is not working",
+        "speech recognition failed"
+      ],
+      "responses": [
+        "Recent Chrome or Edge is recommended; check microphone permission.",
+        "Typed input remains available if speech recognition fails."
+      ],
+      "pattern_responses": {
+        "which browser should I use": "Use a current version of Chrome or Microsoft Edge for the most reliable Web Speech API support. Open the app via `http://127.0.0.1:5000` and allow microphone permission.",
+        "microphone is not working": "The page uses a responsive layout intended to fit smaller screens. Actual microphone support depends on the mobile browser and its Web Speech API implementation; test on the target device rather than assuming every browser supports it.",
+        "speech recognition failed": "The interface can be used from a modern browser; current Chrome or Edge is recommended for microphone input. Browser speech recognition may require internet access, while typed input is the fallback."
+      }
+    },
+    {
+      "tag": "project_architecture",
+      "patterns": [
+        "explain project architecture",
+        "how does the system work",
+        "describe the pipeline"
+      ],
+      "responses": [
+        "Speech is transcribed in the browser, Flask receives text, and the classifier predicts an intent.",
+        "The project separates speech, classification, responses, and the API."
+      ],
+      "pattern_responses": {
+        "explain project architecture": "The frontend is built with HTML, CSS, and JavaScript; Flask serves the page and API; classifier mode uses PyTorch or scikit-learn artifacts; browser APIs handle speech recognition and spoken replies.",
+        "how does the system work": "The frontend is built with HTML, CSS, and JavaScript; Flask serves the page and API; classifier mode uses PyTorch or scikit-learn artifacts; browser APIs handle speech recognition and spoken replies.",
+        "describe the pipeline": "The pipeline is: microphone → browser speech-to-text → JavaScript request → Flask `/api/chat` → configured classifier or LLM provider → JSON response → chat display and optional SpeechSynthesis."
+      }
+    },
+    {
+      "tag": "model_comparison",
+      "patterns": [
+        "difference between MLP and SVM",
+        "compare the models",
+        "why use SVM"
+      ],
+      "responses": [
+        "The MLP is a PyTorch network; SVM uses TF-IDF with LinearSVC.",
+        "Both models classify intent labels on benchmark data."
+      ],
+      "pattern_responses": {
+        "difference between MLP and SVM": "The MLP is a feed-forward neural network trained with PyTorch. The SVM baseline uses TF-IDF features and LinearSVC from scikit-learn. In the reported experiment, SVM reached 90.38% in-domain accuracy and 0.867 macro-F1, compared with 86.53% and 0.825 for the MLP.",
+        "compare the models": "The MLP is a feed-forward neural network trained with PyTorch. The SVM baseline uses TF-IDF features and LinearSVC from scikit-learn. In the reported experiment, SVM reached 90.38% in-domain accuracy and 0.867 macro-F1, compared with 86.53% and 0.825 for the MLP.",
+        "why use SVM": "LinearSVC is a useful baseline because TF-IDF word unigrams and bigrams can separate intent phrases efficiently. In the reported CLINC150 run it also trained faster and scored higher than the MLP, though the result is dataset- and setup-specific."
+      }
+    },
+    {
+      "tag": "study_planning",
+      "patterns": [
+        "help plan my studies",
+        "make a study schedule",
+        "how should I revise"
+      ],
+      "responses": [
+        "Break topics into small goals and use active recall with spaced review.",
+        "Prioritize weak topics and practise questions under time limits."
+      ],
+      "pattern_responses": {
+        "help plan my studies": "Try three blocks: (1) 30–40 minutes learning one concept, (2) 20 minutes solving questions without notes, and (3) 10 minutes writing what remains unclear. Leave short breaks between blocks and review the same material later.",
+        "make a study schedule": "Try three blocks: (1) 30–40 minutes learning one concept, (2) 20 minutes solving questions without notes, and (3) 10 minutes writing what remains unclear. Leave short breaks between blocks and review the same material later.",
+        "how should I revise": "Close your notes and write the key ideas from memory, then reopen them to correct gaps. Repeat the recall after a day and again several days later instead of rereading passively."
+      }
+    },
+    {
+      "tag": "health_general",
+      "patterns": [
+        "give health advice",
+        "I feel sick",
+        "what should I do for my health"
+      ],
+      "responses": [
+        "Health questions need context and a qualified professional; this demo is not medical advice.",
+        "For urgent symptoms, contact local emergency or medical services."
+      ],
+      "pattern_responses": {
+        "give health advice": "For health questions, use a reliable medical source or consult a qualified healthcare professional who can consider your circumstances. This educational chatbot is not a medical service.",
+        "I feel sick": "I can offer general information but cannot diagnose illness. Consider your symptoms, duration, and severity, and contact a healthcare professional; seek urgent care for severe or rapidly worsening symptoms.",
+        "what should I do for my health": "For health questions, use a reliable medical source or consult a qualified healthcare professional who can consider your circumstances. This educational chatbot is not a medical service."
+      }
     }
   ],
   "fallback_responses": [
     "I didn't confidently recognize that. Try rephrasing it, or ask about deep learning, speech recognition, model training, study tips, or this project.",
     "I'm not sure I understood. Could you ask in a different way? You can also choose one of the suggested prompts.",
     "That question may be outside my current set of intents. Try a shorter version or ask me about how VoxAssist works."
-  ]
+  ],
+  "pattern_response_note": "pattern_responses maps each original pattern to a tailored reply. It is an optional extension: existing training scripts ignore it unless response selection is updated to choose the closest pattern within the predicted intent. Keep patterns unchanged for training compatibility. For paraphrases not present in this map, use the intent's responses or a fallback."
 }

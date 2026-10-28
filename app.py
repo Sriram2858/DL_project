@@ -5,6 +5,7 @@ import json
 import os
 import random
 import re
+from difflib import SequenceMatcher
 from pathlib import Path
 
 import torch
@@ -32,6 +33,7 @@ metadata: dict | None = None
 benchmark_model = None
 model_kind = "legacy"
 authored_responses: dict[str, list[str]] = {}
+authored_patterns: dict[str, str] = {}
 provider_name = "classifier"
 llm_provider: OllamaProvider | None = None
 retrieval_enabled = False
@@ -40,6 +42,9 @@ retrieval_enabled = False
 def clean_response_text(text: str) -> str:
     """Remove Markdown markers that browsers may read aloud as punctuation names."""
     cleaned = str(text or "")
+    cleaned = re.sub(r"\$([^$]+)\$", r"\1", cleaned)
+    cleaned = cleaned.replace(r"\div", " divided by ").replace(r"\times", " times ").replace(r"\cdot", " multiplied by ")
+    cleaned = cleaned.replace(r"\leq", " <= ").replace(r"\geq", " >= ").replace(r"\neq", " != ")
     cleaned = re.sub(r"[`*_~]", "", cleaned)
     cleaned = re.sub(r"\basterisks?\b", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"[ \t]{2,}", " ", cleaned)
@@ -48,8 +53,21 @@ def clean_response_text(text: str) -> str:
 
 def load_model() -> None:
     """Load the trained model and its matching preprocessing metadata."""
-    global model, metadata, benchmark_model, model_kind, authored_responses
+    global model, metadata, benchmark_model, model_kind, authored_responses, authored_patterns
+    # The authored intents model is the default conversational classifier.
+    # CLINC150 MLP/SVM remain selectable benchmark models.
     model_kind = os.environ.get("VOXASSIST_MODEL", "legacy").lower()
+    try:
+        authored = json.loads((ROOT / "intents.json").read_text(encoding="utf-8"))
+        authored_responses = {item["tag"]: item["responses"] for item in authored["intents"]}
+        authored_patterns = {
+            pattern.strip().lower(): item["tag"]
+            for item in authored["intents"]
+            for pattern in item.get("patterns", [])
+        }
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        authored_responses = {}
+        authored_patterns = {}
     if model_kind in {"mlp", "svm"}:
         try:
             authored = json.loads((ROOT / "intents.json").read_text(encoding="utf-8"))
@@ -85,7 +103,7 @@ def load_provider() -> None:
     provider_name = os.environ.get("VOXASSIST_PROVIDER", "classifier").lower()
     llm_provider = None
     retrieval_enabled = os.environ.get("VOXASSIST_RETRIEVAL", "0").lower() in {"1", "true", "yes", "on"}
-    if provider_name != "ollama":
+    if provider_name not in {"ollama", "hybrid"}:
         return
     retriever = None
     if retrieval_enabled:
@@ -104,6 +122,17 @@ def classify_message(message: str) -> dict:
     if metadata is None or (model is None and benchmark_model is None):
         command = "python train_benchmark.py" if model_kind in {"mlp", "svm"} else "python train.py"
         raise RuntimeError(f"The selected model is not trained yet. Run {command} first.")
+    direct_tag = authored_patterns.get(message.strip().lower())
+    if direct_tag and model_kind == "legacy":
+        pattern_response = select_pattern_response(message, direct_tag, metadata)
+        choices = authored_responses.get(direct_tag, [])
+        return {
+            "response": clean_response_text(pattern_response or (random.choice(choices) if choices else "I recognized that request.")),
+            "intent": direct_tag,
+            "intent_label": direct_tag.replace("_", " ").title(),
+            "confidence": 1.0,
+            "recognized": True,
+        }
     if model_kind in {"mlp", "svm"}:
         tags = [tag for tag in metadata["tags"] if tag != "oos"]
         if model_kind == "mlp":
@@ -126,7 +155,7 @@ def classify_message(message: str) -> dict:
         if confidence_value <= threshold:
             return {"response": clean_response_text("I could not confidently map that to one of VoxAssist's supported topics. Please rephrase or ask about the project."), "intent": "fallback", "intent_label": "Out of scope", "confidence": round(confidence_value, 4), "recognized": False}
         choices = authored_responses.get(predicted_tag)
-        response = clean_response_text(random.choice(choices) if choices else f"I recognized the CLINC150 intent '{predicted_tag}', but VoxAssist has no authored response for that category yet.")
+        response = clean_response_text(random.choice(choices) if choices else f"I recognized the CLINC150 intent '{predicted_tag}', but no response template is configured for it yet.")
         return {"response": response, "intent": predicted_tag, "intent_label": predicted_tag.replace("_", " ").title(), "confidence": round(confidence_value, 4), "recognized": True}
     features = vectorize(message, metadata["vocabulary"]).unsqueeze(0)
     with torch.no_grad():
@@ -145,8 +174,12 @@ def classify_message(message: str) -> dict:
             "recognized": False,
         }
 
-    choices = metadata["responses"].get(predicted_tag, [])
-    response = clean_response_text(random.choice(choices) if choices else "I recognized your message, but I don't have a response for that intent yet.")
+    pattern_response = select_pattern_response(message, predicted_tag, metadata)
+    if pattern_response:
+        response = clean_response_text(pattern_response)
+    else:
+        choices = metadata["responses"].get(predicted_tag, [])
+        response = clean_response_text(random.choice(choices) if choices else "I recognized your message, but I don't have a response for that intent yet.")
     label = predicted_tag.replace("_", " ").title()
     return {
         "response": clean_response_text(response),
@@ -155,6 +188,34 @@ def classify_message(message: str) -> dict:
         "confidence": round(confidence_value, 4),
         "recognized": True,
     }
+
+
+def select_pattern_response(message: str, tag: str, metadata: dict) -> str | None:
+    """Pick the response for the closest authored pattern in the predicted intent."""
+    choices = metadata.get("pattern_responses", {}).get(tag, {})
+    if not choices:
+        return None
+
+    def normalize(text: str) -> str:
+        return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+    query = normalize(message)
+    query_words = set(query.split())
+    best_pattern = None
+    best_score = 0.0
+    for pattern in choices:
+        candidate = normalize(pattern)
+        candidate_words = set(candidate.split())
+        union = query_words | candidate_words
+        overlap = len(query_words & candidate_words) / len(union) if union else 0.0
+        sequence = SequenceMatcher(None, query, candidate).ratio()
+        score = 0.55 * overlap + 0.45 * sequence
+        if score > best_score:
+            best_score = score
+            best_pattern = pattern
+    if best_pattern is None or best_score < 0.28:
+        return None
+    return choices[best_pattern]
 
 
 def generate_message(message: str) -> dict:
@@ -207,7 +268,27 @@ def chat():
     if len(message) > MAX_MESSAGE_LENGTH:
         return jsonify({"error": f"Messages must be {MAX_MESSAGE_LENGTH} characters or fewer."}), 400
     try:
-        result = generate_message(message) if provider_name == "ollama" else classify_message(message)
+        if provider_name == "ollama":
+            result = generate_message(message)
+        elif provider_name == "hybrid":
+            try:
+                classified = classify_message(message)
+            except RuntimeError:
+                classified = None
+            has_authored_response = bool(classified and classified.get("recognized") and classified.get("intent") in authored_responses)
+            if has_authored_response:
+                classified["provider"] = "classifier"
+                result = classified
+            else:
+                try:
+                    result = generate_message(message)
+                except LLMProviderError:
+                    if classified is None:
+                        raise
+                    classified["provider"] = "classifier_fallback"
+                    result = classified
+        else:
+            result = classify_message(message)
     except (RuntimeError, LLMProviderError) as exc:
         return jsonify({"error": str(exc)}), 503
     return jsonify(result)

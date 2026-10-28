@@ -73,6 +73,21 @@ class LLMProviderTests(unittest.TestCase):
         finally:
             app.provider_name, app.llm_provider = original_provider, original_client
 
+    def test_hybrid_mode_uses_generation_for_unmatched_classifier_intent(self):
+        import app
+        original_provider, original_client = app.provider_name, app.llm_provider
+        try:
+            app.provider_name = "hybrid"
+            app.authored_responses = {"greeting": ["Hello"]}
+            app.llm_provider = SimpleNamespace(generate=lambda _message: ("general answer", []), model="qwen3.5:2b")
+            with patch.object(app, "classify_message", return_value={"response": "generic", "intent": "unknown_clinc_intent", "recognized": True}):
+                response = app.app.test_client().post("/api/chat", json={"message": "a general question"})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.json["response"], "general answer")
+            self.assertEqual(response.json["intent"], "llm_response")
+        finally:
+            app.provider_name, app.llm_provider = original_provider, original_client
+
 
 if __name__ == "__main__":
     unittest.main()

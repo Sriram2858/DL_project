@@ -42,7 +42,7 @@
       micButton.classList.add('is-listening');
       micButton.setAttribute('aria-label', 'Stop voice input');
       listeningBanner.hidden = false;
-      listeningText.textContent = 'Listening… speak now';
+      listeningText.textContent = 'Listening... speak now';
       speechSupportNote.textContent = 'MICROPHONE ACTIVE';
     };
 
@@ -50,23 +50,24 @@
       let interim = '';
       let finalText = '';
       for (let i = event.resultIndex; i < event.results.length; i += 1) {
-        const piece = event.results[i][0].transcript;
+        const piece = cleanSpeechText(event.results[i][0].transcript);
         if (event.results[i].isFinal) finalText += piece;
         else interim += piece;
       }
-      currentInterimTranscript = finalText || interim;
+      currentInterimTranscript = cleanSpeechText(finalText || interim);
       input.value = currentInterimTranscript;
-      listeningText.textContent = interim ? `Hearing: “${interim}”` : 'Processing your speech…';
+      listeningText.textContent = interim ? `Hearing: ${cleanSpeechText(interim)}` : 'Processing your speech...';
       if (finalText.trim()) {
         stopListeningUI();
-        input.value = finalText.trim();
-        sendMessage(finalText.trim());
+        const cleanedFinalText = cleanSpeechText(finalText);
+        input.value = cleanedFinalText;
+        sendMessage(cleanedFinalText);
       }
     };
 
     recognition.onerror = (event) => {
       const messages = {
-        'not-allowed': 'Microphone blocked — allow access in browser settings.',
+        'not-allowed': 'Microphone blocked - allow access in browser settings.',
         'service-not-allowed': 'Speech service unavailable. You can type instead.',
         'no-speech': 'No speech detected. Try again or type a message.',
         'audio-capture': 'No microphone found. Check your input device.',
@@ -88,7 +89,7 @@
     micButton.disabled = true;
     micButton.title = 'Speech recognition is not supported in this browser';
     micButton.style.opacity = '.45';
-    speechSupportNote.textContent = 'TYPE INPUT · MIC UNSUPPORTED';
+    speechSupportNote.textContent = 'TYPE INPUT - MIC UNSUPPORTED';
   }
 
   function escapeHtml(value) {
@@ -98,7 +99,21 @@
   }
 
   function cleanResponseText(value) {
-    return String(value || '').replace(/[`*_~]/g, '').replace(/\basterisks?\b/gi, '').replace(/[ \t]{2,}/g, ' ').trim();
+    return String(value || '')
+      .replace(/\$([^$]+)\$/g, '$1')
+      .replace(/\\div/g, ' divided by ').replace(/\\times/g, ' times ').replace(/\\cdot/g, ' multiplied by ')
+      .replace(/\\leq/g, ' <= ').replace(/\\geq/g, ' >= ').replace(/\\neq/g, ' != ')
+      .replace(/[`*_~]/g, '')
+      .replace(/\basterisks?\b/gi, '')
+      .replace(/[ \t]{2,}/g, ' ').trim();
+  }
+
+  function cleanSpeechText(value) {
+    return String(value || '')
+      .replace(/[^a-zA-Z0-9\s.,?!'\-+*/()=]/g, '')
+      .replace(/\basterisks?\b/gi, '')
+      .replace(/[ \t]{2,}/g, ' ')
+      .trim();
   }
 
   function timestamp() {
@@ -123,8 +138,8 @@
     let extra = '';
     if (isBot && metadata) {
       const detail = metadata.recognized
-        ? `${metadata.intent_label} · ${Math.round(metadata.confidence * 100)}% confidence`
-        : `Fallback · ${Math.round(metadata.confidence * 100)}% top score`;
+        ? `${metadata.intent_label} - ${Math.round(metadata.confidence * 100)}% confidence`
+        : `Fallback - ${Math.round(metadata.confidence * 100)}% top score`;
       extra = `<div class="intent-chip"><i class="confidence-dot"></i>${escapeHtml(detail)}</div>`;
     }
     const displayText = cleanResponseText(text);
@@ -236,7 +251,7 @@
         systemStatus.classList.remove('is-error');
         modelStatusText.textContent = 'Neural model ready';
         modelStatusDetail.textContent = `${data.intents} intent categories loaded locally`;
-        modelStatusCheck.textContent = '✓';
+        modelStatusCheck.textContent = 'OK';
         modelStatusRow.classList.remove('is-error');
       } else {
         throw new Error('Model not trained yet');
@@ -302,3 +317,5 @@
 
   checkHealth();
 })();
+
+
